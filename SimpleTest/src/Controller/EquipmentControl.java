@@ -74,8 +74,6 @@ public class EquipmentControl {
         System.out.println("Se actualizò un Equipo");
         
         return result;
-//awqdqw
     }
-    
-    
+
 }
