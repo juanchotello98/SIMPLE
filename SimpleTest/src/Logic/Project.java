@@ -5,6 +5,8 @@
  */
 package Logic;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author SJ
@@ -15,11 +17,24 @@ public class Project {
     String name;
     String description;
     String projectManager;
+    ArrayList <User> members;
 
 
     //Builder
     public Project(){
-
+        members = new ArrayList <> ();
+    }
+    
+    public void getMembers(User user){
+        members.add(user);
+    }
+    
+    public int projectSize(){
+        return members.size();
+    }
+    
+    public User viewMember(int posicion){
+        return members.get(posicion);
     }
 
     //Methods

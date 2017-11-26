@@ -25,10 +25,13 @@ public class SIMPLEPROJECT {
         System.out.println("Se logea usuario con codigo 1632645");
         System.out.println("Se muestra informacion del usuario");
         System.out.println("CODIGO = "+user.getUserCode()+", NOMBRE = "+user.getName()+" TELEFONO = "+user.getPhone());
-        System.out.println("Iniciando cambio de contraseña, contraseña actual: "+user.getPassword());
-        System.out.println("Cambiemole por 'aloha'");
-        System.out.println(objDao.changePassword(user, "aloha", "sifunciona", "sifunciona"));
-        System.out.println("Su contraseña actual es: "+user.getPassword());
+        
+        objDao.listProject(user);
+        
+        System.out.println("CODIGO PROYECTO -   NOMBRE  -   DESCRIPCION -   DIR PROYECTO");
+        for(int i=0; i<user.projectSize();i++){
+            System.out.println(user.viewProject(i).getProjectCode()+"       "+user.viewProject(i).getName()+"   "+user.viewProject(i).getDescription()+"    "+user.viewProject(i).getProjectManager());
+        }
     }
     
 }

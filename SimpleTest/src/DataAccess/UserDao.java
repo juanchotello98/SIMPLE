@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package DataAccess;
-
+import java.util.ArrayList.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -57,7 +57,7 @@ public class UserDao {
          catch(Exception e){
                           System.out.println(e); 
                           }
-        listProject(user);
+        refreshProject(user);
 
     }
     
@@ -96,9 +96,15 @@ public class UserDao {
 
     // Metodo listo 
 
-    public void listProject(User user){//ENTRADA ARRAY LIST
+    public void refreshProject(User user){//ENTRADA ARRAY LIST
         // NO OLVIDAR AGREGAR CONDICION DE CONTAR SI EL USUARIO YA TIENE PROYECTOS, SI ES ASI ELIMINARLOS 
         // Y DE JAR ARRAYLIST EN CEROS, SI NO CORRER NORMAL
+        if(user.getProject().size()!=0){
+            while(user.getProject().size()!=0){
+                int aux = 0;
+                user.deleteProject(aux);
+            }
+        }
         String sql_select;
         sql_select="SELECT projectCode, name, projectDescription, projectManager FROM project NATURAL JOIN user_project WHERE userCode='"+user.getUserCode()+"';";
 
@@ -147,6 +153,4 @@ public class UserDao {
         return finalMessage;
     }
 
-
-	
 }

@@ -35,6 +35,18 @@ public class User {
 
     //Methods
     
+    public ArrayList getProject(){
+        return myProjects;
+    }
+    
+    public void deleteProject(int posicion){
+        myProjects.remove(posicion);
+    }
+    
+    public int projectSize(){
+        return myProjects.size();
+    }
+    
     public void updateProjects(Project project){
         myProjects.add(project);
     }
