@@ -5,13 +5,13 @@
  */
 package Logic;
 
-import java.util.ArrayList;
-
 /**
  *
- * @author SJ
+ * @author Diego
  */
 public class User {
+    
+    private String userID;
     private String userCode;
     private String password;
     private String name;
@@ -19,28 +19,26 @@ public class User {
     private String charge;
     private String cedula;
     private String phone;
-    private ArrayList < Project > myProjects;
+   // private ArrayList < Project > myProjects;
     //private ArrayList < Equipment > my
 
     // AGREGAR ATRIBUTOS PROYECTO ARRAYLIST
 
 
     //Builder
-    public User(String userCode){
-        this.userCode=userCode;
-        myProjects = new ArrayList <>();
+    public User(){
+        //this.userCode=userCode;
+        //myProjects = new ArrayList <>();
     }
-
-
 
     //Methods
     
-    public ArrayList getProject(){
+   /* public ArrayList getProject(){
         return myProjects;
     }
     
-    public void deleteProject(int posicion){
-        myProjects.remove(posicion);
+    public void deleteProjects(){
+        myProjects.removeAll(myProjects);
     }
     
     public int projectSize(){
@@ -53,7 +51,11 @@ public class User {
     
     public Project viewProject(int posicion){
         return myProjects.get(posicion);
-    }
+    }*/
+    
+    public String getUserID(){
+        return userID;
+    } 
     
     public String getUserCode(){
         return userCode;
@@ -81,6 +83,10 @@ public class User {
     
     public String getPassword(){
         return password;
+    }
+    
+    public void setUserID(String userID){
+        this.userID=userID;
     }
     
     public void setPassword(String password){
@@ -111,3 +117,4 @@ public class User {
             this.phone=phone;
     }
 }
+

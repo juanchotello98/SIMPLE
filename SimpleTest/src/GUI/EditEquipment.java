@@ -300,7 +300,7 @@ public class EditEquipment extends javax.swing.JPanel {
             numberEquipment=searchEquipmentTextField.getText();
             equipment = equipmentControl.searchEquipment(numberEquipment);
 
-            if(equipment.getNumberEquipment()!=null){
+            if(equipment.getNumberEquipment()!= null){
 
                 JOptionPane.showMessageDialog(null,"Encontrado Equipo con ID: "+equipment.getNumberEquipment());
 

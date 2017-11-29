@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Logic;
+package Controller;
+
+import DataAccess.RootDAO;
+import Logic.User;
 
 /**
  *
- * @author SJ
+ * @author Diego
  */
-public class Control {
+public class RootControl extends  UserControl{
     
-    // metodo login(uuser , password)
-    
-   
 }

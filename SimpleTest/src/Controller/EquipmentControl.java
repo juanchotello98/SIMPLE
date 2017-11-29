@@ -31,7 +31,6 @@ public class EquipmentControl {
         equipment.setSerieEquipment(serieEquipment);
         equipment.setDescriptionEquipment(descriptionEquipment);
 
-        
         //Se llama al dao para guardar
         System.out.println("Se insertarà un Equipo");
         

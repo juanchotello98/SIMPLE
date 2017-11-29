@@ -58,6 +58,7 @@ public class EquipmentDAO {
         String sql_search;
         
         sql_search="SELECT codigo, nombre, codigoBarras, numeroSerie, descripcion, estado FROM  equipos WHERE codigo='" +numberEquipment+  "'";
+        
          try{
             Connection conn= conection.connect();
             System.out.println("consultando en la bd");

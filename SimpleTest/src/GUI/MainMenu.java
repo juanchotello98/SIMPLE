@@ -35,8 +35,7 @@ public class MainMenu extends javax.swing.JFrame {
         listButtom = new javax.swing.JButton();
         equipmentLogo = new javax.swing.JLabel();
         PanelArriba = new javax.swing.JPanel();
-        univalleLogo = new javax.swing.JLabel();
-        simpleLogo = new javax.swing.JLabel();
+        panelImage1 = new org.edisoncor.gui.panel.PanelImage();
         PanelDerecha = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,31 +96,32 @@ public class MainMenu extends javax.swing.JFrame {
 
         PanelArriba.setBackground(new java.awt.Color(255, 255, 255));
 
-        univalleLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo-univalle.jpg"))); // NOI18N
+        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/SimpleLogoLast.png"))); // NOI18N
 
-        simpleLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logoSimple.png"))); // NOI18N
+        javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
+        panelImage1.setLayout(panelImage1Layout);
+        panelImage1Layout.setHorizontalGroup(
+            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 290, Short.MAX_VALUE)
+        );
+        panelImage1Layout.setVerticalGroup(
+            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 125, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout PanelArribaLayout = new javax.swing.GroupLayout(PanelArriba);
         PanelArriba.setLayout(PanelArribaLayout);
         PanelArribaLayout.setHorizontalGroup(
             PanelArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelArribaLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(univalleLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 308, Short.MAX_VALUE)
-                .addComponent(simpleLogo)
-                .addGap(34, 34, 34))
+                .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 510, Short.MAX_VALUE))
         );
         PanelArribaLayout.setVerticalGroup(
             PanelArribaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelArribaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(univalleLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
-            .addGroup(PanelArribaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(simpleLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         PanelDerecha.setBackground(new java.awt.Color(255, 255, 255));
@@ -243,8 +243,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton editButtom;
     private javax.swing.JLabel equipmentLogo;
     private javax.swing.JButton listButtom;
+    private org.edisoncor.gui.panel.PanelImage panelImage1;
     public static javax.swing.JButton registerButtom;
-    private javax.swing.JLabel simpleLogo;
-    private javax.swing.JLabel univalleLogo;
     // End of variables declaration//GEN-END:variables
 }
