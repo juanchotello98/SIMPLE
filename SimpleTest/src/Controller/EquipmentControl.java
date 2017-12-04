@@ -7,6 +7,7 @@ package Controller;
 
 import DataAccess.EquipmentDAO;
 import Logic.Equipment;
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -22,12 +23,11 @@ public class EquipmentControl {
         equipmentDAO = new EquipmentDAO();
     }
     
-        public int insertEquipment(String nameEquipment, String barcodeEquipment, String serieEquipment, String descriptionEquipment){
+    public int insertEquipment(String nameEquipment, String serieEquipment, String descriptionEquipment){
             
         Equipment equipment = new Equipment();        
 
         equipment.setNameEquipment(nameEquipment);
-        equipment.setBarcodeEquipment(barcodeEquipment);
         equipment.setSerieEquipment(serieEquipment);
         equipment.setDescriptionEquipment(descriptionEquipment);
 
@@ -42,25 +42,24 @@ public class EquipmentControl {
 
     }
         
-        public Equipment searchEquipment(String numberEquipment){
+    public Equipment searchEquipment(String inputValue,String typeSearch){
         //Vector v= new Vector();
 
         Equipment equipment = new Equipment();
         
         System.out.println("Se va a Buscar un Equipo");
 
-        equipment = equipmentDAO.searchEquipment(numberEquipment);
+        equipment = equipmentDAO.searchEquipment(inputValue, typeSearch);
       
        return equipment;       
     }
         
-        public int updateEquipment(String numberEquipment,String nameEquipment, String barcodeEquipment, String serieEquipment, String descriptionEquipment, String stateEquipment){
+    public int updateEquipment(String numberEquipment,String nameEquipment, String serieEquipment, String descriptionEquipment, String stateEquipment){
             
         Equipment equipment = new Equipment();        
 
         equipment.setNumberEquipment(numberEquipment);
         equipment.setNameEquipment(nameEquipment);
-        equipment.setBarcodeEquipment(barcodeEquipment);
         equipment.setSerieEquipment(serieEquipment);
         equipment.setDescriptionEquipment(descriptionEquipment);
         equipment.setStateEquipment(stateEquipment);
@@ -74,6 +73,22 @@ public class EquipmentControl {
         
         return result;
 
+    }
+        
+    public ArrayList<Object[]> listSearchEquipment(String inputValue, String typeSearch){
+    
+         ArrayList <Object[]> inventory = new ArrayList <>();
+         inventory = equipmentDAO.listSearchEquipment(inputValue, typeSearch);
+         
+         return inventory;      
+    }
+    
+    public ArrayList<Object[]> listEquipment(){
+    
+         ArrayList <Object[]> inventory = new ArrayList <>();
+         inventory = equipmentDAO.listEquipment();
+         
+         return inventory;      
     }
     
     

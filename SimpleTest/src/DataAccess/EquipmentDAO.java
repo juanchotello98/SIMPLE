@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,10 +31,9 @@ public class EquipmentDAO {
         String sql_save;
         int numFilas=0;
 
-        sql_save="INSERT INTO equipos (Nombre, CodigoBarras, NumeroSerie, Descripcion, Estado) "
+        sql_save="INSERT INTO equipment (name, serialNumber, description, state) "
                 + "VALUES ('" + equipment.getNameEquipment()+  "', '" +
-                equipment.getBarcodeEquipment() + "', '" + equipment.getSerieEquipment() + "', '" +
-                equipment.getDescriptionEquipment() + "', 'Activo')";
+                equipment.getSerieEquipment() + "', '" + equipment.getDescriptionEquipment() + "', 'Activo')";
         try{
             Connection conn = conection.connect();
             Statement sentencia = conn.createStatement();
@@ -52,12 +52,11 @@ public class EquipmentDAO {
         return -1;
     }//fin guardar
         
-        
-        public Equipment searchEquipment(String numberEquipment){
+        public Equipment searchEquipment(String inputValue, String typeSearch){
         Equipment equipment = new Equipment();
         String sql_search;
         
-        sql_search="SELECT codigo, nombre, codigoBarras, numeroSerie, descripcion, estado FROM  equipos WHERE codigo='" +numberEquipment+  "'";
+        sql_search="SELECT code, name, serialNumber, description, state FROM equipment WHERE "+typeSearch+" ilike '" +inputValue+  "%'";
         
          try{
             Connection conn= conection.connect();
@@ -70,10 +69,9 @@ public class EquipmentDAO {
                 
                equipment.setNumberEquipment(tabla.getString(1));
                equipment.setNameEquipment(tabla.getString(2));
-               equipment.setBarcodeEquipment(tabla.getString(3));
-               equipment.setSerieEquipment(tabla.getString(4));     
-               equipment.setDescriptionEquipment(tabla.getString(5));
-               equipment.setStateEquipment(tabla.getString(6));
+               equipment.setSerieEquipment(tabla.getString(3));     
+               equipment.setDescriptionEquipment(tabla.getString(4));
+               equipment.setStateEquipment(tabla.getString(5));
               
               System.out.println("ok");
             }         
@@ -85,14 +83,47 @@ public class EquipmentDAO {
          return null;
     }
         
+        public ArrayList <Object[]> listEquipment(){
+            
+        ArrayList <Object[]> inventory = new ArrayList <>();
+        String sql_search;
+        sql_search="SELECT * from equipment";
+
+
+        try{
+            Connection conn= conection.connect();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_search);
+
+            while(tabla.next()){
+
+               Object[] objectRow = new Object[5];
+               
+               for(int i=0; i<5; i++){
+                   
+                   objectRow[i]=tabla.getObject(i+1);  
+               }
+               
+               inventory.add(objectRow);
+            }
+
+         }
+         catch(SQLException e){ 
+                         System.out.println(e); 
+                         }
+         catch(Exception e){
+                          System.out.println(e); 
+                          }
+        return inventory;
+   }
         
         public int updateEquipment(Equipment equipment){
         String sql_update;
         int numFilas=0;
 
-        sql_update="UPDATE equipos Set Nombre='"+equipment.getNameEquipment()+"', CodigoBarras='"+equipment.getBarcodeEquipment()+"', "
-                + "NumeroSerie='"+equipment.getSerieEquipment()+"', Descripcion='"+equipment.getDescriptionEquipment()+"',"
-                + " Estado='"+equipment.getStateEquipment()+"'WHERE codigo='"+equipment.getNumberEquipment()+"'";
+        sql_update="UPDATE equipment Set name='"+equipment.getNameEquipment()+"', serialNumber='"+equipment.getSerieEquipment()+"', description='"+equipment.getDescriptionEquipment()+"',"
+                + " state='"+equipment.getStateEquipment()+"'WHERE code='"+equipment.getNumberEquipment()+"'";
         
         try{
             Connection conn = conection.connect();
@@ -110,4 +141,39 @@ public class EquipmentDAO {
         }
         return -1;
     }//fin guardar
+        
+        public ArrayList <Object[]> listSearchEquipment(String inputValue, String typeSearch){
+            
+        ArrayList <Object[]> inventory = new ArrayList <>();
+        String sql_search;
+        sql_search="SELECT code, name, serialNumber, description, state FROM equipment WHERE "+typeSearch+" ilike '" +inputValue+ "%'";
+
+
+        try{
+            Connection conn= conection.connect();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_search);
+
+            while(tabla.next()){
+
+               Object[] objectRow = new Object[5];
+               
+               for(int i=0; i<5; i++){
+                   
+                   objectRow[i]=tabla.getObject(i+1);  
+               }
+               
+               inventory.add(objectRow);
+            }
+
+         }
+         catch(SQLException e){ 
+                         System.out.println(e); 
+                         }
+         catch(Exception e){
+                          System.out.println(e); 
+                          }
+        return inventory;
+   }
 } 

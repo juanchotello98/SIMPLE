@@ -13,7 +13,6 @@ public class Equipment {
     
     String numberEquipment;
     String nameEquipment;
-    String barcodeEquipment;
     String serieEquipment;
     String descriptionEquipment;
     String stateEquipment;
@@ -27,10 +26,6 @@ public String getNumberEquipment(){
  
 public String getNameEquipment(){
      return nameEquipment;
- }
-
-public String getBarcodeEquipment(){
-     return barcodeEquipment;
  }
 
 public String getSerieEquipment(){
@@ -53,10 +48,6 @@ public void setNumberEquipment(String numberEquipment){
 
 public void setNameEquipment(String nameEquipment){
      this.nameEquipment=nameEquipment;
- }
-
-public void setBarcodeEquipment(String barcodeEquipment){
-     this.barcodeEquipment=barcodeEquipment;
  }
 
 public void setSerieEquipment(String serieEquipment){

@@ -11,14 +11,16 @@ package Logic;
  */
 public class User {
     
-    private String userID;
-    private String userCode;
+    private String code;
+    private String identification;
     private String password;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String email;
     private String charge;
-    private String cedula;
+    private String typeID;
     private String phone;
+    private String state;
    // private ArrayList < Project > myProjects;
     //private ArrayList < Equipment > my
 
@@ -53,16 +55,20 @@ public class User {
         return myProjects.get(posicion);
     }*/
     
-    public String getUserID(){
-        return userID;
+    public String getCode(){
+        return code;
     } 
     
-    public String getUserCode(){
-        return userCode;
+    public String getIdentification(){
+        return identification;
     }
 
-    public String getName(){
-            return name;
+    public String getFirstName(){
+            return firstName;
+    }
+    
+    public String getLastName(){
+            return lastName;
     }
 
     public String getEmail(){
@@ -73,8 +79,8 @@ public class User {
             return charge;
     }
 
-    public String getCedula(){
-            return cedula;
+    public String getTypeID(){
+            return typeID;
     }
 
     public String getPhone(){
@@ -85,20 +91,28 @@ public class User {
         return password;
     }
     
-    public void setUserID(String userID){
-        this.userID=userID;
+    public String getState(){
+        return state;
+    }
+    
+    public void setCode(String code){
+        this.code=code;
     }
     
     public void setPassword(String password){
         this.password=password;
     }
 
-    public void setUserCode(String userCode){
-            this.userCode=userCode;
+    public void setIdentification(String identification){
+        this.identification=identification;
     }
 
-    public void setName(String name){
-            this.name=name;
+    public void setFirstName(String firstName){
+        this.firstName=firstName;
+    }
+    
+    public void setLastName(String lastName){
+        this.lastName=lastName;
     }
 
     public void setEmail(String email){
@@ -109,12 +123,16 @@ public class User {
             this.charge=charge;
     }
 
-    public void setCedula(String cedula){
-            this.cedula=cedula;
+    public void setTypeID(String typeID){
+            this.typeID=typeID;
     }
 
     public void setPhone(String phone){
             this.phone=phone;
+    }
+    
+    public void setState(String state){
+            this.state=state;
     }
 }
 

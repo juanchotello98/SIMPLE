@@ -5,12 +5,16 @@
  */
 package GUI;
 
+import Controller.EquipmentControl;
 import DataAccess.Conection;
+import Logic.Equipment;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,43 +22,29 @@ import javax.swing.table.DefaultTableModel;
  * @author Diego
  */
 public class ListEquipment extends javax.swing.JPanel {
-    Conection conection;
+    EquipmentControl equipmentControl;
 
     /**
      * Creates new form ListEquipment
      */
     public ListEquipment() {
         initComponents();
-        conection = new Conection();
-        CargarArticulo();
+        equipmentControl = new EquipmentControl();
+        loadInventory();
     }
     
-    public void CargarArticulo(){
+    public void loadInventory(){
         
-        String sql_search;
-        DefaultTableModel modelo = (DefaultTableModel) equipmentTable.getModel();
-        modelo.setRowCount(0);
-        sql_search="SELECT * FROM equipos ORDER BY codigo";
-         try{
-            Connection conn= conection.connect();
-            System.out.println("consultando en la bd");
-            Statement sentencia = conn.createStatement();
-            ResultSet tabla = sentencia.executeQuery(sql_search);
-   
-            while(tabla.next()){
-                Vector equipmentVector = new Vector();
-                equipmentVector.add(tabla.getInt(1));
-                equipmentVector.add(tabla.getString(2));
-                equipmentVector.add(tabla.getString(3));
-                equipmentVector.add(tabla.getString(4));
-                equipmentVector.add(tabla.getString(5));
-                equipmentVector.add(tabla.getString(6));
-                
-                modelo.addRow(equipmentVector);
-                equipmentTable.setModel(modelo);
-            }
-        }catch (SQLException e){
-       }
+    ArrayList <Object[]> inventory = new ArrayList <>();
+    inventory = equipmentControl.listEquipment();
+            
+    DefaultTableModel modelo = (DefaultTableModel) equipmentTable.getModel();
+    modelo.setRowCount(0);  
+
+    for(int i=0; i<inventory.size(); i++ ){
+    modelo.addRow(inventory.get(i));
+    equipmentTable.setModel(modelo);
+            }     
     }
     
     /**
@@ -66,39 +56,37 @@ public class ListEquipment extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        registerLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         equipmentTable = new javax.swing.JTable();
-
-        registerLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        registerLabel.setText("Lista de Equipos");
-        registerLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        typeSearchCombo = new javax.swing.JComboBox<>();
+        nameTextField = new javax.swing.JTextField();
+        searchButtom = new javax.swing.JButton();
+        registerLabel = new javax.swing.JLabel();
 
         equipmentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "    ID", "           Articulo", "   Codigo de Barras", "   Numero de Serie", "        Descripion", "            Estado"
+                "ID", "Articulo", " Numero de Serie", "Descripion", " Estado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -110,34 +98,137 @@ public class ListEquipment extends javax.swing.JPanel {
             equipmentTable.getColumnModel().getColumn(0).setPreferredWidth(10);
         }
 
+        typeSearchCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Serie", "Estado"}));
+
+        nameTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        nameTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        searchButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Search.png"))); // NOI18N
+        searchButtom.setBorderPainted(false);
+        searchButtom.setContentAreaFilled(false);
+        searchButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtomActionPerformed(evt);
+            }
+        });
+
+        registerLabel.setBackground(new java.awt.Color(153, 153, 153));
+        registerLabel.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
+        registerLabel.setForeground(new java.awt.Color(235, 30, 0));
+        registerLabel.setText("Listar  Equipos");
+        registerLabel.setAlignmentY(0.0F);
+        registerLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(registerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(registerLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addComponent(registerLabel)
-                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(searchButtom)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void searchButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtomActionPerformed
+        // TODO add your handling code here:
+        Equipment equipment;
+        String inputValue;
+        String typeSearch;
+
+        if(nameTextField.getText().length()>0){
+
+            inputValue=nameTextField.getText();
+            typeSearch=(String)typeSearchCombo.getSelectedItem();
+            typeSearch = traduction(typeSearch);
+
+            equipment = equipmentControl.searchEquipment(inputValue, typeSearch);
+
+            if(equipment.getNumberEquipment()!= null){
+
+                JOptionPane.showMessageDialog(null,"Bùsqueda Exitosa");   
+                listSearchEquipment(inputValue,typeSearch);
+
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"No se encontrò ningun Equipo que coincida con la bùsqueda");              
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Por favor completa todos los campos");
+        }
+
+    }//GEN-LAST:event_searchButtomActionPerformed
+
+    public void listSearchEquipment(String inputValue, String typeSearch){
+            
+        ArrayList <Object[]> inventory = new ArrayList <>();
+        inventory = equipmentControl.listSearchEquipment(inputValue, typeSearch);
+            
+        DefaultTableModel modelo = (DefaultTableModel) equipmentTable.getModel();
+        modelo.setRowCount(0);  
+
+        for(int i=0; i<inventory.size(); i++ ){
+        modelo.addRow(inventory.get(i));
+        equipmentTable.setModel(modelo);
+            }     
+        }
+    
+    public String traduction(String word){
+            
+        switch (word) {
+           case "Nombre":
+             word = "Name";
+             break;
+             case "Serie":
+             word = "SerialNumber";
+             break;
+             case "Estado":
+             word = "State";
+             break;
+             default:
+             System.out.println("error");
+             break;} 
+             
+             return  word;
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable equipmentTable;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField nameTextField;
     private javax.swing.JLabel registerLabel;
+    private javax.swing.JButton searchButtom;
+    private javax.swing.JComboBox<String> typeSearchCombo;
     // End of variables declaration//GEN-END:variables
 }
