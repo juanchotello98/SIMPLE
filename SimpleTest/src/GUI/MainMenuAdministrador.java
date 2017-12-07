@@ -111,7 +111,7 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
             }
         });
 
-        EquipmentButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Equipos_1.png"))); // NOI18N
+        EquipmentButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/EquiposMainMenu.png"))); // NOI18N
         EquipmentButtom.setBorderPainted(false);
         EquipmentButtom.setContentAreaFilled(false);
         EquipmentButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -191,9 +191,7 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelImage3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelImage2Layout.createSequentialGroup()
-                        .addComponent(PanelDerecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(PanelDerecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

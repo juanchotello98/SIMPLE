@@ -16,6 +16,7 @@ public class Project {
     private String name;
     private String description;
     private String managerID;
+    private String state;
     
     
     public Project(){}
@@ -41,6 +42,10 @@ public class Project {
     public String getProjectManager(){
             return managerID;
     }
+    
+    public String getState(){
+            return state;
+    }
 
     public void setCode(String code){
             this.code=code;
@@ -60,5 +65,9 @@ public class Project {
 
     public void setManagerID(String managerID){
             this.managerID=managerID;
+    }
+    
+    public void setState(String state){
+            this.state=state;
     }
 }

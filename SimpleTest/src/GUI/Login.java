@@ -227,7 +227,7 @@ public class Login extends javax.swing.JFrame {
     String userPassword = null;
     User user;
     
-    if(codeTextField.getText().length()>0 && passwordTextField.getText().length()>0){
+    if(codeTextField.getText().length()>0 && !passwordTextField.getText().equals("")){
         
         userIdentificacion=codeTextField.getText();
         userPassword = new String(passwordTextField.getPassword());
@@ -238,14 +238,14 @@ public class Login extends javax.swing.JFrame {
              
              if (user.getIdentification().equals(userIdentificacion) && user.getPassword().equals(userPassword)){
                  
-                 JOptionPane.showMessageDialog(null, "Bienvenido "+user.getFirstName()); 
+                JOptionPane.showMessageDialog(null, "Bienvenido "+user.getFirstName()); 
                  
                  switch (user.getCharge()) {
                  case "Administrador":
                    MainMenuAdministrador mainMenuAdministrador = new MainMenuAdministrador();
                    mainMenuAdministrador.setVisible(true);
                    dispose();
-                      break;
+                   break;
                 /* case '-':
                    System.out.println( a - b );
                       break;
@@ -267,6 +267,9 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No existe el usuario con el codigo "+userIdentificacion);
             }
       }
+            else{
+            JOptionPane.showMessageDialog(null, "Por favor complete todos los campos");
+            }
     }//GEN-LAST:event_loginButtomActionPerformed
 
     /**

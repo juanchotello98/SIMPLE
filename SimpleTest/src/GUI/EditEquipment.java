@@ -25,6 +25,7 @@ public class EditEquipment extends javax.swing.JPanel {
     public EditEquipment() {
         initComponents();
         equipmentControl = new EquipmentControl();
+        loadInventory();
     }
 
     /**
@@ -36,26 +37,48 @@ public class EditEquipment extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelImage1 = new org.edisoncor.gui.panel.PanelImage();
-        registerLabel = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        searchEquipmentTable = new javax.swing.JTable();
-        typeSearchCombo = new javax.swing.JComboBox<>();
         nameTextField = new javax.swing.JTextField();
         searchButtom = new javax.swing.JButton();
         editSelect = new javax.swing.JButton();
+        registerLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        equipmentTable = new javax.swing.JTable();
+        typeSearchCombo = new javax.swing.JComboBox<>();
+        backButtom = new javax.swing.JButton();
 
-        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cuadro.png"))); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        nameTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        searchButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SearchButtom.png"))); // NOI18N
+        searchButtom.setBorderPainted(false);
+        searchButtom.setContentAreaFilled(false);
+        searchButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        searchButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtomActionPerformed(evt);
+            }
+        });
+
+        editSelect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/EditarButtom.png"))); // NOI18N
+        editSelect.setBorderPainted(false);
+        editSelect.setContentAreaFilled(false);
+        editSelect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editSelectActionPerformed(evt);
+            }
+        });
 
         registerLabel.setBackground(new java.awt.Color(153, 153, 153));
         registerLabel.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
         registerLabel.setForeground(new java.awt.Color(235, 30, 0));
-        registerLabel.setText("Editar  Equipo");
+        registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registerLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/EditarEquipoTitle.png"))); // NOI18N
         registerLabel.setAlignmentY(0.0F);
         registerLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        searchEquipmentTable.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        searchEquipmentTable.setModel(new javax.swing.table.DefaultTableModel(
+        equipmentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -80,97 +103,81 @@ public class EditEquipment extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        searchEquipmentTable.setSelectionBackground(new java.awt.Color(255, 0, 0));
-        searchEquipmentTable.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(searchEquipmentTable);
+        equipmentTable.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        equipmentTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(equipmentTable);
 
         typeSearchCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Serie"}));
+        typeSearchCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        nameTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        nameTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        searchButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Search.png"))); // NOI18N
-        searchButtom.setBorderPainted(false);
-        searchButtom.setContentAreaFilled(false);
-        searchButtom.addActionListener(new java.awt.event.ActionListener() {
+        backButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/VolverButtom.png"))); // NOI18N
+        backButtom.setBorderPainted(false);
+        backButtom.setContentAreaFilled(false);
+        backButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtomActionPerformed(evt);
+                backButtomActionPerformed(evt);
             }
         });
-
-        editSelect.setText("editar");
-        editSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editSelectActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
-        panelImage1.setLayout(panelImage1Layout);
-        panelImage1Layout.setHorizontalGroup(
-            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImage1Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage1Layout.createSequentialGroup()
-                        .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panelImage1Layout.createSequentialGroup()
-                                .addComponent(registerLabel)
-                                .addGap(144, 144, 144))
-                            .addGroup(panelImage1Layout.createSequentialGroup()
-                                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addGap(28, 28, 28))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))))
-            .addGroup(panelImage1Layout.createSequentialGroup()
-                .addGap(199, 199, 199)
-                .addComponent(editSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        panelImage1Layout.setVerticalGroup(
-            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImage1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(registerLabel)
-                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelImage1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelImage1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(editSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(199, 199, 199)
+                .addComponent(editSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(typeSearchCombo, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void loadInventory(){
+        
+    ArrayList <Object[]> inventory = new ArrayList <>();
+    inventory = equipmentControl.listEquipment();
+            
+    DefaultTableModel modelo = (DefaultTableModel) equipmentTable.getModel();
+    modelo.setRowCount(0);  
+
+    for(int i=0; i<inventory.size(); i++ ){
+    modelo.addRow(inventory.get(i));
+    equipmentTable.setModel(modelo);
+            }     
+    }
+    
     private void searchButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtomActionPerformed
         // TODO add your handling code here:
         Equipment equipment;
@@ -204,6 +211,9 @@ public class EditEquipment extends javax.swing.JPanel {
 
     private void editSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSelectActionPerformed
         // TODO add your handling code here:
+        
+        int row = equipmentTable.getSelectedRow();
+        if(row!=-1){
         EditEquipmentForm editEquipmentForm = new EditEquipmentForm();
         editEquipmentForm.setSize(639,483);
         editEquipmentForm.setLocation(0,0);
@@ -212,17 +222,32 @@ public class EditEquipment extends javax.swing.JPanel {
         this.revalidate();
         this.repaint();
         this.add(editEquipmentForm);
+        this.revalidate();
+        this.repaint();
         
-        int row = searchEquipmentTable.getSelectedRow();
-        String code=searchEquipmentTable.getValueAt(row, 0).toString();
-        String name=searchEquipmentTable.getValueAt(row, 1).toString();
-        String serial=searchEquipmentTable.getValueAt(row, 2).toString();
-        String description=searchEquipmentTable.getValueAt(row, 3).toString();
-        String state=searchEquipmentTable.getValueAt(row, 4).toString();
+        String code=equipmentTable.getValueAt(row, 0).toString();
+        String name=equipmentTable.getValueAt(row, 1).toString();
+        String serial=equipmentTable.getValueAt(row, 2).toString();
+        String description=equipmentTable.getValueAt(row, 3).toString();
+        String state=equipmentTable.getValueAt(row, 4).toString();
         
-        editEquipmentForm.setValues(code, name, serial, description, state);
+        editEquipmentForm.setValues(code, name, serial, description, state);}
+        else{ JOptionPane.showMessageDialog(null, "Por favor Seleccione una Fila");
+        }
  
     }//GEN-LAST:event_editSelectActionPerformed
+
+    private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
+        // TODO add your handling code here:
+        MenuEquipment menuEquipment = new MenuEquipment();
+        menuEquipment.setSize(639,483);
+        menuEquipment.setLocation(0,0);
+
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
+        this.add(menuEquipment);
+    }//GEN-LAST:event_backButtomActionPerformed
         
     public void limpiar_texto(){  
         nameTextField.setText("");    
@@ -243,23 +268,23 @@ public class EditEquipment extends javax.swing.JPanel {
             ArrayList <Object[]> inventory = new ArrayList <>();
             inventory = equipmentControl.listSearchEquipment(inputValue, typeSearch);
             
-            DefaultTableModel modelo = (DefaultTableModel) searchEquipmentTable.getModel();
+            DefaultTableModel modelo = (DefaultTableModel) equipmentTable.getModel();
             modelo.setRowCount(0);  
 
             for(int i=0; i<inventory.size(); i++ ){
             modelo.addRow(inventory.get(i));
-            searchEquipmentTable.setModel(modelo);
+            equipmentTable.setModel(modelo);
             }     
         };
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButtom;
     private javax.swing.JButton editSelect;
+    private javax.swing.JTable equipmentTable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameTextField;
-    private org.edisoncor.gui.panel.PanelImage panelImage1;
     private javax.swing.JLabel registerLabel;
     private javax.swing.JButton searchButtom;
-    private javax.swing.JTable searchEquipmentTable;
     private javax.swing.JComboBox<String> typeSearchCombo;
     // End of variables declaration//GEN-END:variables
 }

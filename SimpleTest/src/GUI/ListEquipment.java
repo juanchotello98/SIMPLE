@@ -62,6 +62,10 @@ public class ListEquipment extends javax.swing.JPanel {
         nameTextField = new javax.swing.JTextField();
         searchButtom = new javax.swing.JButton();
         registerLabel = new javax.swing.JLabel();
+        backButtom = new javax.swing.JButton();
+        showInfo = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         equipmentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,19 +97,22 @@ public class ListEquipment extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        equipmentTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(equipmentTable);
         if (equipmentTable.getColumnModel().getColumnCount() > 0) {
             equipmentTable.getColumnModel().getColumn(0).setPreferredWidth(10);
         }
 
         typeSearchCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Serie", "Estado"}));
+        typeSearchCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        nameTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        nameTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        nameTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
-        searchButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Search.png"))); // NOI18N
+        searchButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SearchButtom.png"))); // NOI18N
         searchButtom.setBorderPainted(false);
         searchButtom.setContentAreaFilled(false);
+        searchButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        searchButtom.setPreferredSize(new java.awt.Dimension(165, 45));
         searchButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButtomActionPerformed(evt);
@@ -115,48 +122,78 @@ public class ListEquipment extends javax.swing.JPanel {
         registerLabel.setBackground(new java.awt.Color(153, 153, 153));
         registerLabel.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
         registerLabel.setForeground(new java.awt.Color(235, 30, 0));
-        registerLabel.setText("Listar  Equipos");
+        registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registerLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ListarEquiposTitle.png"))); // NOI18N
         registerLabel.setAlignmentY(0.0F);
         registerLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        backButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/VolverButtom.png"))); // NOI18N
+        backButtom.setBorderPainted(false);
+        backButtom.setContentAreaFilled(false);
+        backButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backButtom.setPreferredSize(new java.awt.Dimension(45, 45));
+        backButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtomActionPerformed(evt);
+            }
+        });
+
+        showInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/VerInfoButtom.png"))); // NOI18N
+        showInfo.setBorderPainted(false);
+        showInfo.setContentAreaFilled(false);
+        showInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        showInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showInfoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(registerLabel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(76, 76, 76)
+                        .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(200, 200, 200)
+                        .addComponent(showInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(registerLabel)
+                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(searchButtom)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(showInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(39, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -189,6 +226,47 @@ public class ListEquipment extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_searchButtomActionPerformed
+
+    private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
+        // TODO add your handling code here:
+        
+        MenuEquipment menuEquipment = new MenuEquipment();
+        menuEquipment.setSize(639,483);
+        menuEquipment.setLocation(0,0);
+
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
+        this.add(menuEquipment);
+        
+    }//GEN-LAST:event_backButtomActionPerformed
+
+    private void showInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showInfoActionPerformed
+        // TODO add your handling code here:
+
+        int row = equipmentTable.getSelectedRow();
+        if(row!=-1){
+            ShowInfoEquipment showInfoEquipment = new ShowInfoEquipment();
+            showInfoEquipment.setSize(639,494);
+            showInfoEquipment.setLocation(0,0);
+
+            this.removeAll();
+            this.revalidate();
+            this.repaint();
+            this.add(showInfoEquipment);
+
+            String code=equipmentTable.getValueAt(row, 0).toString();
+            String name=equipmentTable.getValueAt(row, 1).toString();
+            String serie=equipmentTable.getValueAt(row, 2).toString();
+            String description=equipmentTable.getValueAt(row, 3).toString();
+            String state=equipmentTable.getValueAt(row, 4).toString();
+
+            showInfoEquipment.setValues(code, name, serie, description, state);
+        }
+        else{ JOptionPane.showMessageDialog(null, "Por favor Seleccione una Fila");
+        }
+
+    }//GEN-LAST:event_showInfoActionPerformed
 
     public void listSearchEquipment(String inputValue, String typeSearch){
             
@@ -224,11 +302,13 @@ public class ListEquipment extends javax.swing.JPanel {
         }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButtom;
     private javax.swing.JTable equipmentTable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JLabel registerLabel;
     private javax.swing.JButton searchButtom;
+    private javax.swing.JButton showInfo;
     private javax.swing.JComboBox<String> typeSearchCombo;
     // End of variables declaration//GEN-END:variables
 }

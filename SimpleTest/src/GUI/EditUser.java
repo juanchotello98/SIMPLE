@@ -24,6 +24,7 @@ public class EditUser extends javax.swing.JPanel {
     public EditUser() {
         initComponents();
         userControl = new UserControl();
+        loadUsers();
     }
 
     /**
@@ -42,22 +43,28 @@ public class EditUser extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         userTable = new javax.swing.JTable();
         editSelectUser = new javax.swing.JButton();
+        backButtom = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         listLabel.setBackground(new java.awt.Color(153, 153, 153));
         listLabel.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
         listLabel.setForeground(new java.awt.Color(235, 30, 0));
-        listLabel.setText("Editar  Usuarios");
+        listLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        listLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/EditarUsuarioTitle.png"))); // NOI18N
         listLabel.setAlignmentY(0.0F);
         listLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         typeSearchCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Apellido", "Identificacion", "Estado"}));
+        typeSearchCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        typeSearchCombo.setMinimumSize(new java.awt.Dimension(28, 27));
 
-        nameTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        nameTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        nameTextField.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
-        searchButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Search.png"))); // NOI18N
+        searchButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SearchButtom.png"))); // NOI18N
         searchButtom.setBorderPainted(false);
         searchButtom.setContentAreaFilled(false);
+        searchButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         searchButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButtomActionPerformed(evt);
@@ -94,12 +101,27 @@ public class EditUser extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        userTable.setSelectionBackground(new java.awt.Color(235, 30, 0));
+        userTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(userTable);
 
-        editSelectUser.setText("Editar");
+        editSelectUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/EditarButtom.png"))); // NOI18N
+        editSelectUser.setBorderPainted(false);
+        editSelectUser.setContentAreaFilled(false);
+        editSelectUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editSelectUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editSelectUserActionPerformed(evt);
+            }
+        });
+
+        backButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/VolverButtom.png"))); // NOI18N
+        backButtom.setBorderPainted(false);
+        backButtom.setContentAreaFilled(false);
+        backButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtomActionPerformed(evt);
             }
         });
 
@@ -110,49 +132,67 @@ public class EditUser extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE))
+                        .addGap(76, 76, 76)
+                        .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 79, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(155, 155, 155)
-                                .addComponent(listLabel)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(listLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(221, 221, 221)
-                .addComponent(editSelectUser, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(188, 188, 188)
+                .addComponent(editSelectUser, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(listLabel)
+                .addComponent(listLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchButtom)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(editSelectUser, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nameTextField)
+                                    .addComponent(typeSearchCombo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(23, 23, 23))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(editSelectUser, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void loadUsers(){
+        
+    ArrayList <Object[]> users = new ArrayList <>();
+    users = userControl.listUser();
+            
+    DefaultTableModel modelo = (DefaultTableModel) userTable.getModel();
+    modelo.setRowCount(0);  
+
+    for(int i=0; i<users.size(); i++ ){
+    modelo.addRow(users.get(i));
+    userTable.setModel(modelo);
+            }     
+    }
+    
     private void searchButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtomActionPerformed
         // TODO add your handling code here:
         User user;
@@ -185,6 +225,8 @@ public class EditUser extends javax.swing.JPanel {
     private void editSelectUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSelectUserActionPerformed
         // TODO add your handling code here:
         
+        int row = userTable.getSelectedRow();
+        if(row!=-1){
         EditUserForm editUserForm = new EditUserForm();
         editUserForm.setSize(639,483);
         editUserForm.setLocation(0,0);
@@ -194,7 +236,6 @@ public class EditUser extends javax.swing.JPanel {
         this.repaint();
         this.add(editUserForm);
         
-        int row = userTable.getSelectedRow();
         String code=userTable.getValueAt(row, 0).toString();
         String identification=userTable.getValueAt(row, 1).toString();
         String firstName=userTable.getValueAt(row, 2).toString();
@@ -206,8 +247,23 @@ public class EditUser extends javax.swing.JPanel {
         String state=userTable.getValueAt(row, 8).toString();
         
         editUserForm.setValues(code, identification, firstName, lastName, email, charge, typeID, phone, state);
+        }
+        else{ JOptionPane.showMessageDialog(null, "Por favor Seleccione una Fila");
+        }
         
     }//GEN-LAST:event_editSelectUserActionPerformed
+
+    private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
+        // TODO add your handling code here:
+        MenuUser menuUser = new MenuUser();
+        menuUser.setSize(639,483);
+        menuUser.setLocation(0,0);
+
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
+        this.add(menuUser);
+    }//GEN-LAST:event_backButtomActionPerformed
 
     public void listSearchUser(String inputValue, String typeSearch){
             
@@ -246,6 +302,7 @@ public class EditUser extends javax.swing.JPanel {
         }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButtom;
     private javax.swing.JButton editSelectUser;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel listLabel;

@@ -82,7 +82,7 @@ public class ProjectControl {
 
     }
     
-    public int updateProject(String code, String identification, String name, String description, String managerID){
+    public int updateProject(String code, String identification, String name, String description, String managerID, String state){
             
         Project project = new Project();        
 
@@ -91,6 +91,7 @@ public class ProjectControl {
         project.setName(name);
         project.setDescription(description);
         project.setManagerID(managerID);
+        project.setState(state);
         //Se llama al dao para guardar
         System.out.println("Se insertarà un Proyecto");
         

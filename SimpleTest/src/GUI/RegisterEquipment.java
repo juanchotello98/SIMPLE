@@ -37,7 +37,7 @@ public class RegisterEquipment extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelImage5 = new org.edisoncor.gui.panel.PanelImage();
+        registerLabel = new javax.swing.JLabel();
         serieTextField = new javax.swing.JTextField();
         nameLabel = new javax.swing.JLabel();
         serielNumber = new javax.swing.JLabel();
@@ -46,32 +46,38 @@ public class RegisterEquipment extends javax.swing.JPanel {
         registerButtom = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptionTextArea = new javax.swing.JTextArea();
-        registerLabel = new javax.swing.JLabel();
+        backButtom = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        panelImage5.setBackground(new java.awt.Color(153, 153, 153));
-        panelImage5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cuadro.png"))); // NOI18N
+        registerLabel.setBackground(new java.awt.Color(153, 153, 153));
+        registerLabel.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
+        registerLabel.setForeground(new java.awt.Color(235, 30, 0));
+        registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registerLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/RegistrarEquiposTitle.png"))); // NOI18N
+        registerLabel.setAlignmentY(0.0F);
+        registerLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        serieTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        serieTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        serieTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        nameLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        nameLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         nameLabel.setForeground(new java.awt.Color(235, 30, 0));
         nameLabel.setText("Articulo");
 
-        serielNumber.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        serielNumber.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         serielNumber.setForeground(new java.awt.Color(235, 30, 0));
-        serielNumber.setText("Serie");
+        serielNumber.setText("Numero de serie");
 
-        descriptionLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        descriptionLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         descriptionLabel.setForeground(new java.awt.Color(235, 30, 0));
         descriptionLabel.setText("Descripcion");
 
-        nameTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        nameTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        nameTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        registerButtom.setText("Registrar");
+        registerButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/RegistrarButtom.png"))); // NOI18N
+        registerButtom.setBorderPainted(false);
+        registerButtom.setContentAreaFilled(false);
+        registerButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registerButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerButtomActionPerformed(evt);
@@ -79,83 +85,69 @@ public class RegisterEquipment extends javax.swing.JPanel {
         });
 
         descriptionTextArea.setColumns(20);
-        descriptionTextArea.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        descriptionTextArea.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         descriptionTextArea.setRows(5);
         descriptionTextArea.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         descriptionTextArea.setLineWrap(true);
         descriptionTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(descriptionTextArea);
 
-        registerLabel.setBackground(new java.awt.Color(153, 153, 153));
-        registerLabel.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
-        registerLabel.setForeground(new java.awt.Color(235, 30, 0));
-        registerLabel.setText("Registrar Equipo");
-        registerLabel.setAlignmentY(0.0F);
-        registerLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout panelImage5Layout = new javax.swing.GroupLayout(panelImage5);
-        panelImage5.setLayout(panelImage5Layout);
-        panelImage5Layout.setHorizontalGroup(
-            panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImage5Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(nameLabel)
-                    .addComponent(descriptionLabel)
-                    .addComponent(serielNumber))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nameTextField)
-                    .addComponent(serieTextField)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(121, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage5Layout.createSequentialGroup()
-                        .addComponent(registerButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(196, 196, 196))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage5Layout.createSequentialGroup()
-                        .addComponent(registerLabel)
-                        .addGap(110, 110, 110))))
-        );
-        panelImage5Layout.setVerticalGroup(
-            panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImage5Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(registerLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameLabel))
-                .addGap(13, 13, 13)
-                .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(serieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(serielNumber))
-                .addGap(19, 19, 19)
-                .addGroup(panelImage5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(descriptionLabel))
-                .addGap(39, 39, 39)
-                .addComponent(registerButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-        );
+        backButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CancelarButton.png"))); // NOI18N
+        backButtom.setBorderPainted(false);
+        backButtom.setContentAreaFilled(false);
+        backButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtomActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registerLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(panelImage5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(121, 121, 121)
+                .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                .addComponent(registerButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(serielNumber)
+                    .addComponent(nameLabel)
+                    .addComponent(descriptionLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(serieTextField)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(panelImage5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameLabel))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(serielNumber)
+                    .addComponent(serieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(descriptionLabel)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(registerButtom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backButtom, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(62, 62, 62))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -189,6 +181,18 @@ public class RegisterEquipment extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_registerButtomActionPerformed
 
+    private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
+        // TODO add your handling code here:
+        MenuEquipment menuEquipment = new MenuEquipment();
+        menuEquipment.setSize(639,483);
+        menuEquipment.setLocation(0,0);
+
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
+        this.add(menuEquipment);
+    }//GEN-LAST:event_backButtomActionPerformed
+
     public void limpiar_texto(){  
         nameTextField.setText("");
         serieTextField.setText("");
@@ -196,12 +200,12 @@ public class RegisterEquipment extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButtom;
     private javax.swing.JLabel descriptionLabel;
     public static javax.swing.JTextArea descriptionTextArea;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
-    private org.edisoncor.gui.panel.PanelImage panelImage5;
     private javax.swing.JButton registerButtom;
     private javax.swing.JLabel registerLabel;
     private javax.swing.JTextField serieTextField;

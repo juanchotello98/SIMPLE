@@ -28,7 +28,7 @@ public class ProjectDAO {
             
         ArrayList <Object[]> projects = new ArrayList <>();
         String sql_search;
-        sql_search="select project.code, projectID, name, projectDescription, member.firstname||' '||member.lastName from project inner join member on projectManager=member.identification ;";
+        sql_search="select project.code, projectID, name, projectDescription, member.firstname||' '||member.lastName, project.state from project inner join member on projectManager=member.identification;";
 
 
         try{
@@ -39,9 +39,9 @@ public class ProjectDAO {
 
             while(tabla.next()){
 
-               Object[] objectRow = new Object[5];
+               Object[] objectRow = new Object[6];
                
-               for(int i=0; i<5; i++){
+               for(int i=0; i<6; i++){
                    
                    objectRow[i]=tabla.getObject(i+1);  
                }
@@ -64,9 +64,9 @@ public class ProjectDAO {
         String sql_search;
         
         if(typeSearch.equals("namemanager")){
-        sql_search="select project.code, projectID, name, projectDescription, member.firstname||' '||member.lastName as nameManager from project inner join member on projectManager=member.identification WHERE member.firstname||' '||member.lastName ilike '%"+inputValue+"%'";
+        sql_search="select project.code, projectID, name, projectDescription, member.firstname||' '||member.lastName as nameManager, project.state from project inner join member on projectManager=member.identification WHERE member.firstname||' '||member.lastName ilike '%"+inputValue+"%'";
         }
-        else{sql_search="select project.code, projectID, name, projectDescription, member.firstname||' '||member.lastName as nameManager from project inner join member on projectManager=member.identification WHERE "+typeSearch+" ilike '%"+inputValue+"%'";
+        else{sql_search="select project.code, projectID, name, projectDescription, member.firstname||' '||member.lastName as nameManager, project.state from project inner join member on projectManager=member.identification WHERE project."+typeSearch+" ilike '%"+inputValue+"%'";
         }
         
          try{
@@ -96,9 +96,9 @@ public class ProjectDAO {
         String sql_search;
         
         if(typeSearch.equals("namemanager")){
-        sql_search="select project.code, projectID, name, projectDescription, member.firstname||' '||member.lastName as nameManager from project inner join member on projectManager=member.identification WHERE member.firstname||' '||member.lastName ilike '%"+inputValue+"%'";
+        sql_search="select project.code, projectID, name, projectDescription, member.firstname||' '||member.lastName as nameManager, project.state from project inner join member on projectManager=member.identification WHERE member.firstname||' '||member.lastName ilike '%"+inputValue+"%'";
         }
-        else{sql_search="select project.code, projectID, name, projectDescription, member.firstname||' '||member.lastName as nameManager from project inner join member on projectManager=member.identification WHERE "+typeSearch+" ilike '%"+inputValue+"%'";
+        else{sql_search="select project.code, projectID, name, projectDescription, member.firstname||' '||member.lastName as nameManager, project.state from project inner join member on projectManager=member.identification WHERE project."+typeSearch+" ilike '%"+inputValue+"%'";
         }
         
         try{
@@ -109,9 +109,9 @@ public class ProjectDAO {
 
             while(tabla.next()){
 
-               Object[] objectRow = new Object[5];
+               Object[] objectRow = new Object[6];
                
-               for(int i=0; i<5; i++){
+               for(int i=0; i<6; i++){
                    
                    objectRow[i]=tabla.getObject(i+1);  
                }
@@ -188,9 +188,9 @@ public class ProjectDAO {
         String sql_save;
         int numFilas=0;
 
-        sql_save="INSERT INTO project (projectID, name, projectDescription, projectManager) "
+        sql_save="INSERT INTO project (projectID, name, projectDescription, projectManager, state) "
                 + "VALUES ('" + project.getProjectID()+  "', '" +
-                project.getName()+ "', '" + project.getDescription()+ "', '" + project.getProjectManager()+ "')";
+                project.getName()+ "', '" + project.getDescription()+ "', '" + project.getProjectManager()+ "','Activo')";
         try{
             Connection conn = conection.connect();
             Statement sentencia = conn.createStatement();
@@ -214,7 +214,7 @@ public class ProjectDAO {
         int numFilas=0;
 
         sql_update="UPDATE project Set projectID='"+project.getProjectID()+"', name='"+project.getName()+"', projectDescription='"+project.getDescription()+"',"
-                + " projectManager='"+project.getProjectManager()+"'WHERE code='"+project.getProjectCode()+"'";
+                + " projectManager='"+project.getProjectManager()+"', state='"+project.getState()+"'WHERE code='"+project.getProjectCode()+"'";
         try{
             Connection conn = conection.connect();
             Statement sentencia = conn.createStatement();

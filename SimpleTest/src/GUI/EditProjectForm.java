@@ -36,16 +36,6 @@ public class EditProjectForm extends javax.swing.JPanel {
 
         registerLabel = new javax.swing.JLabel();
         registerButtom = new javax.swing.JButton();
-        oldIdentificationTextField = new javax.swing.JTextField();
-        nameLabel = new javax.swing.JLabel();
-        oldManagerTextField = new javax.swing.JTextField();
-        nameLabel1 = new javax.swing.JLabel();
-        nameLabel2 = new javax.swing.JLabel();
-        nameLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        oldDescriptionTextArea = new javax.swing.JTextArea();
-        oldValuesLabel = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         newNameTextField = new javax.swing.JTextField();
         nameLabel4 = new javax.swing.JLabel();
         nameLabel5 = new javax.swing.JLabel();
@@ -55,83 +45,48 @@ public class EditProjectForm extends javax.swing.JPanel {
         newManagerComboBox = new javax.swing.JComboBox<>();
         newIdentificationTextField = new javax.swing.JTextField();
         nameLabel7 = new javax.swing.JLabel();
-        oldNameTextField = new javax.swing.JTextField();
-        oldCodeTextField = new javax.swing.JTextField();
-        nameLabel8 = new javax.swing.JLabel();
         newCodeTextField = new javax.swing.JTextField();
-        nameLabel9 = new javax.swing.JLabel();
+        codeTitle = new javax.swing.JLabel();
+        nameLabel11 = new javax.swing.JLabel();
+        newStateComboBox = new javax.swing.JComboBox<>();
+        backButtom = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         registerLabel.setBackground(new java.awt.Color(153, 153, 153));
         registerLabel.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
         registerLabel.setForeground(new java.awt.Color(235, 30, 0));
         registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        registerLabel.setText("Editar Proyecto");
+        registerLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/EditarProyectoTitle.png"))); // NOI18N
         registerLabel.setAlignmentY(0.0F);
         registerLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        registerButtom.setText("Registrar");
+        registerButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/GuardarButtom.png"))); // NOI18N
+        registerButtom.setBorderPainted(false);
+        registerButtom.setContentAreaFilled(false);
+        registerButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registerButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerButtomActionPerformed(evt);
             }
         });
 
-        oldIdentificationTextField.setEditable(false);
-        oldIdentificationTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        oldIdentificationTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        newNameTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        nameLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        nameLabel.setForeground(new java.awt.Color(235, 30, 0));
-        nameLabel.setText("Identificacion");
-
-        oldManagerTextField.setEditable(false);
-        oldManagerTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        oldManagerTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        nameLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        nameLabel1.setForeground(new java.awt.Color(235, 30, 0));
-        nameLabel1.setText("Nombre");
-
-        nameLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        nameLabel2.setForeground(new java.awt.Color(235, 30, 0));
-        nameLabel2.setText("Descripcion");
-
-        nameLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        nameLabel3.setForeground(new java.awt.Color(235, 30, 0));
-        nameLabel3.setText("Lider");
-
-        oldDescriptionTextArea.setEditable(false);
-        oldDescriptionTextArea.setColumns(20);
-        oldDescriptionTextArea.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        oldDescriptionTextArea.setRows(5);
-        oldDescriptionTextArea.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        oldDescriptionTextArea.setLineWrap(true);
-        oldDescriptionTextArea.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(oldDescriptionTextArea);
-
-        oldValuesLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        oldValuesLabel.setText("Valores Antiguos");
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setText("Nuevos Valores");
-
-        newNameTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        newNameTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        nameLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        nameLabel4.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         nameLabel4.setForeground(new java.awt.Color(235, 30, 0));
         nameLabel4.setText("Nombre");
 
-        nameLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        nameLabel5.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         nameLabel5.setForeground(new java.awt.Color(235, 30, 0));
         nameLabel5.setText("Descripcion");
 
-        nameLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        nameLabel6.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         nameLabel6.setForeground(new java.awt.Color(235, 30, 0));
         nameLabel6.setText("Lider");
 
         newDescriptionTextArea.setColumns(20);
-        newDescriptionTextArea.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        newDescriptionTextArea.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         newDescriptionTextArea.setRows(5);
         newDescriptionTextArea.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         newDescriptionTextArea.setLineWrap(true);
@@ -139,143 +94,126 @@ public class EditProjectForm extends javax.swing.JPanel {
         jScrollPane2.setViewportView(newDescriptionTextArea);
 
         newManagerComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        newManagerComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        newIdentificationTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        newIdentificationTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        newIdentificationTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        nameLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        nameLabel7.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         nameLabel7.setForeground(new java.awt.Color(235, 30, 0));
         nameLabel7.setText("Identificacion");
 
-        oldNameTextField.setEditable(false);
-        oldNameTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        oldNameTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        oldCodeTextField.setEditable(false);
-        oldCodeTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        oldCodeTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        nameLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        nameLabel8.setForeground(new java.awt.Color(235, 30, 0));
-        nameLabel8.setText("Codigo");
-
         newCodeTextField.setEditable(false);
-        newCodeTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        newCodeTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        newCodeTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        nameLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        nameLabel9.setForeground(new java.awt.Color(235, 30, 0));
-        nameLabel9.setText("Codigo");
+        codeTitle.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        codeTitle.setForeground(new java.awt.Color(235, 30, 0));
+        codeTitle.setText("Codigo");
+
+        nameLabel11.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        nameLabel11.setForeground(new java.awt.Color(235, 30, 0));
+        nameLabel11.setText("Estado");
+
+        newStateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Activo","Inactivo","Suspendido"}));
+        newStateComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newStateComboBox.setPreferredSize(new java.awt.Dimension(28, 28));
+
+        backButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CancelarButton.png"))); // NOI18N
+        backButtom.setBorderPainted(false);
+        backButtom.setContentAreaFilled(false);
+        backButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtomActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registerLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addComponent(registerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(nameLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(oldManagerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(nameLabel7)
+                                    .addComponent(nameLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(newNameTextField)
+                                    .addComponent(newIdentificationTextField)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(nameLabel6)
+                                    .addComponent(nameLabel5)
+                                    .addComponent(nameLabel11))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(newStateComboBox, 0, 208, Short.MAX_VALUE)
+                                            .addComponent(newManagerComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addComponent(codeTitle)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(newCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(142, 142, 142))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nameLabel1)
-                            .addComponent(nameLabel)
-                            .addComponent(nameLabel2)
-                            .addComponent(nameLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(oldCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(oldValuesLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(oldIdentificationTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(oldNameTextField))
-                                    .addGap(53, 53, 53))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nameLabel6)
-                            .addComponent(nameLabel4)
-                            .addComponent(nameLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(newManagerComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nameLabel7)
-                            .addComponent(nameLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel5)
-                            .addComponent(newNameTextField)
-                            .addComponent(newIdentificationTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addComponent(newCodeTextField, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(65, 65, 65))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(registerButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(244, 244, 244))
+                        .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(registerButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(registerLabel)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(oldValuesLabel)
-                    .addComponent(jLabel5))
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(oldCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(newCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(codeTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(newCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(oldIdentificationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nameLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(oldNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameLabel2)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(nameLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                            .addComponent(oldManagerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(newIdentificationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(newIdentificationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(newNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameLabel5)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(newManagerComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(39, 39, 39)
-                .addComponent(registerButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                        .addComponent(newNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameLabel5)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(nameLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(newManagerComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newStateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameLabel11))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registerButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -286,25 +224,27 @@ public class EditProjectForm extends javax.swing.JPanel {
         String name;
         String description;
         String managerID;
+        String state;
 
-        if(oldIdentificationTextField.getText().length()>0 && oldNameTextField.getText().length()>0 && oldDescriptionTextArea.getText().length()>0){
+        if(newIdentificationTextField.getText().length()>0 && newNameTextField.getText().length()>0 && newDescriptionTextArea.getText().length()>0){
 
-            code=oldCodeTextField.getText();
+            code=newCodeTextField.getText();
             identification=newIdentificationTextField.getText();
             name=newNameTextField.getText();
             description=newDescriptionTextArea.getText();
             managerID = projectControl.getManagerID((String)newManagerComboBox.getSelectedItem());
+            state=(String)newStateComboBox.getSelectedItem();
 
-            int numFilas = projectControl.updateProject(code, identification, name, description, managerID);
+            int numFilas = projectControl.updateProject(code, identification, name, description, managerID,state);
 
             System.out.println ("Filas "+ numFilas);
             if (numFilas == 1){
 
-                JOptionPane.showMessageDialog(null, "Equipo guardado exitosamente");
+                JOptionPane.showMessageDialog(null, "Proyecto guardado exitosamente");
                 loadEditProject();
             }
             else {
-                JOptionPane.showMessageDialog(null, "Ocurrio un problema al guardar el Equipo");
+                JOptionPane.showMessageDialog(null, "Ocurrio un problema al guardar el Proyecto");
             }
         }
         else{
@@ -312,18 +252,34 @@ public class EditProjectForm extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_registerButtomActionPerformed
 
-    public void setValues(String code, String identification, String name, String description, String manager){
+    private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
+        // TODO add your handling code here:
+        EditProject editProject = new EditProject();
+        editProject.setSize(639,483);
+        editProject.setLocation(0,0);
+
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
+        this.add(editProject);
+    }//GEN-LAST:event_backButtomActionPerformed
+
+    public void setValues(String code, String identification, String name, String description, String manager, String state){
         
         newCodeTextField.setText(code);
+        newCodeTextField.setVisible(false);
+        codeTitle.setVisible(false);
+        
         newIdentificationTextField.setText(identification);
         newNameTextField.setText(name);
         newDescriptionTextArea.setText(description);
         
-        oldCodeTextField.setText(code);
+       /* oldCodeTextField.setText(code);
         oldIdentificationTextField.setText(identification);
         oldNameTextField.setText(name);
         oldDescriptionTextArea.setText(description);
         oldManagerTextField.setText(manager);
+        oldStateTextField.setText(state);*/
         //stateEquipment=(String)newStateComboBox.getSelectedItem();
         
     }
@@ -351,30 +307,20 @@ public class EditProjectForm extends javax.swing.JPanel {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton backButtom;
+    private javax.swing.JLabel codeTitle;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel nameLabel;
-    private javax.swing.JLabel nameLabel1;
-    private javax.swing.JLabel nameLabel2;
-    private javax.swing.JLabel nameLabel3;
+    private javax.swing.JLabel nameLabel11;
     private javax.swing.JLabel nameLabel4;
     private javax.swing.JLabel nameLabel5;
     private javax.swing.JLabel nameLabel6;
     private javax.swing.JLabel nameLabel7;
-    private javax.swing.JLabel nameLabel8;
-    private javax.swing.JLabel nameLabel9;
     private javax.swing.JTextField newCodeTextField;
     public static javax.swing.JTextArea newDescriptionTextArea;
     private javax.swing.JTextField newIdentificationTextField;
     private javax.swing.JComboBox<String> newManagerComboBox;
     private javax.swing.JTextField newNameTextField;
-    private javax.swing.JTextField oldCodeTextField;
-    public static javax.swing.JTextArea oldDescriptionTextArea;
-    private javax.swing.JTextField oldIdentificationTextField;
-    private javax.swing.JTextField oldManagerTextField;
-    private javax.swing.JTextField oldNameTextField;
-    private javax.swing.JLabel oldValuesLabel;
+    private javax.swing.JComboBox<String> newStateComboBox;
     private javax.swing.JButton registerButtom;
     private javax.swing.JLabel registerLabel;
     // End of variables declaration//GEN-END:variables

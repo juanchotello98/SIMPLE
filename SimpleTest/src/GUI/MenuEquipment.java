@@ -29,68 +29,102 @@ public class MenuEquipment extends javax.swing.JPanel {
 
         buttonCircle1 = new org.edisoncor.gui.button.ButtonCircle();
         RegisterEquipmentButtom = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        listEquipmentButtom = new javax.swing.JButton();
+        editEquipmentButtom = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         buttonCircle1.setText("buttonCircle1");
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        RegisterEquipmentButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/RegistarEquipo.png"))); // NOI18N
+        RegisterEquipmentButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/RegistrarEquipo.png"))); // NOI18N
         RegisterEquipmentButtom.setBorderPainted(false);
         RegisterEquipmentButtom.setContentAreaFilled(false);
         RegisterEquipmentButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RegisterEquipmentButtom.setPreferredSize(new java.awt.Dimension(130, 130));
         RegisterEquipmentButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegisterEquipmentButtomActionPerformed(evt);
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ListarEquipos.png"))); // NOI18N
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        listEquipmentButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ListarEquipo.png"))); // NOI18N
+        listEquipmentButtom.setBorderPainted(false);
+        listEquipmentButtom.setContentAreaFilled(false);
+        listEquipmentButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        listEquipmentButtom.setPreferredSize(new java.awt.Dimension(130, 130));
+        listEquipmentButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                listEquipmentButtomActionPerformed(evt);
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/EditarEquipo.png"))); // NOI18N
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        editEquipmentButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/EditarEquipo.png"))); // NOI18N
+        editEquipmentButtom.setBorderPainted(false);
+        editEquipmentButtom.setContentAreaFilled(false);
+        editEquipmentButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editEquipmentButtom.setPreferredSize(new java.awt.Dimension(130, 130));
+        editEquipmentButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                editEquipmentButtomActionPerformed(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(235, 30, 0));
+        jLabel1.setText("Listar Equipos");
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(235, 30, 0));
+        jLabel2.setText("Registrar Equipos");
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(235, 30, 0));
+        jLabel3.setText("Editar Equipos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                .addComponent(jButton5)
-                .addGap(80, 80, 80))
+                .addGap(102, 102, 102)
+                .addComponent(listEquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(editEquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110))
             .addGroup(layout.createSequentialGroup()
-                .addGap(220, 220, 220)
-                .addComponent(RegisterEquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(97, 97, 97))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(RegisterEquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(RegisterEquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editEquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listEquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addComponent(RegisterEquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(48, 48, 48))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -108,7 +142,7 @@ public class MenuEquipment extends javax.swing.JPanel {
         
     }//GEN-LAST:event_RegisterEquipmentButtomActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void editEquipmentButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEquipmentButtomActionPerformed
         // TODO add your handling code here:
         
         EditEquipment editarEquipment = new EditEquipment();
@@ -120,9 +154,9 @@ public class MenuEquipment extends javax.swing.JPanel {
         this.repaint();
         this.add(editarEquipment);
         
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_editEquipmentButtomActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void listEquipmentButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listEquipmentButtomActionPerformed
         // TODO add your handling code here:
         
         ListEquipment listEquipment = new ListEquipment();
@@ -133,13 +167,16 @@ public class MenuEquipment extends javax.swing.JPanel {
         this.revalidate();
         this.repaint();
         this.add(listEquipment);    
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_listEquipmentButtomActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton RegisterEquipmentButtom;
     private org.edisoncor.gui.button.ButtonCircle buttonCircle1;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton editEquipmentButtom;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton listEquipmentButtom;
     // End of variables declaration//GEN-END:variables
 }

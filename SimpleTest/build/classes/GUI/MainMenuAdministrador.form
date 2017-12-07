@@ -65,10 +65,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="panelImage3" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="PanelDerecha" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="PanelDerecha" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -223,7 +220,7 @@
             <Component class="javax.swing.JButton" name="EquipmentButtom">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Image/Equipos_1.png"/>
+                  <Image iconType="3" name="/Image/EquiposMainMenu.png"/>
                 </Property>
                 <Property name="borderPainted" type="boolean" value="false"/>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>

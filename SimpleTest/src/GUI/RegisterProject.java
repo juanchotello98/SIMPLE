@@ -45,39 +45,40 @@ public class RegisterProject extends javax.swing.JPanel {
         descriptionTextArea = new javax.swing.JTextArea();
         managerComboBox = new javax.swing.JComboBox<>();
         registerButtom = new javax.swing.JButton();
+        backButtom = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         registerLabel.setBackground(new java.awt.Color(153, 153, 153));
         registerLabel.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
         registerLabel.setForeground(new java.awt.Color(235, 30, 0));
         registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        registerLabel.setText("Registrar Proyecto");
+        registerLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/RegistrarProyectoTitle.png"))); // NOI18N
         registerLabel.setAlignmentY(0.0F);
         registerLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        identificationTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        identificationTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        identificationTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        nameLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        nameLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         nameLabel.setForeground(new java.awt.Color(235, 30, 0));
         nameLabel.setText("Identificacion");
 
-        nameTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        nameTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        nameTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        nameLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        nameLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         nameLabel1.setForeground(new java.awt.Color(235, 30, 0));
         nameLabel1.setText("Nombre");
 
-        nameLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        nameLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         nameLabel2.setForeground(new java.awt.Color(235, 30, 0));
         nameLabel2.setText("Descripcion");
 
-        nameLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        nameLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         nameLabel3.setForeground(new java.awt.Color(235, 30, 0));
         nameLabel3.setText("Lider");
 
         descriptionTextArea.setColumns(20);
-        descriptionTextArea.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
+        descriptionTextArea.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         descriptionTextArea.setRows(5);
         descriptionTextArea.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         descriptionTextArea.setLineWrap(true);
@@ -85,11 +86,25 @@ public class RegisterProject extends javax.swing.JPanel {
         jScrollPane1.setViewportView(descriptionTextArea);
 
         managerComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        managerComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        registerButtom.setText("Registrar");
+        registerButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/RegistrarButtom.png"))); // NOI18N
+        registerButtom.setBorderPainted(false);
+        registerButtom.setContentAreaFilled(false);
+        registerButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registerButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerButtomActionPerformed(evt);
+            }
+        });
+
+        backButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CancelarButton.png"))); // NOI18N
+        backButtom.setBorderPainted(false);
+        backButtom.setContentAreaFilled(false);
+        backButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtomActionPerformed(evt);
             }
         });
 
@@ -97,52 +112,57 @@ public class RegisterProject extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+            .addComponent(registerLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(443, 443, 443)
+                            .addComponent(registerButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(108, 108, 108)
+                            .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(nameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(identificationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nameLabel3)
+                            .addComponent(nameLabel)
                             .addComponent(nameLabel1)
-                            .addComponent(nameLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(nameLabel2)
+                            .addComponent(nameLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(managerComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(291, 291, 291)
-                .addComponent(registerButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(nameTextField)
+                                .addComponent(identificationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(managerComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(registerLabel)
-                .addGap(40, 40, 40)
+                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
                     .addComponent(identificationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nameLabel1)
                     .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nameLabel2)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(managerComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(20, 20, 20)
-                .addComponent(registerButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameLabel3)
+                    .addComponent(managerComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(76, 76, 76)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(registerButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -178,6 +198,18 @@ public class RegisterProject extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_registerButtomActionPerformed
 
+    private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
+        // TODO add your handling code here:
+        MenuProject menuProject = new MenuProject();
+        menuProject.setSize(639,483);
+        menuProject.setLocation(0,0);
+
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
+        this.add(menuProject);
+    }//GEN-LAST:event_backButtomActionPerformed
+
     public void llenarCB(){
     managerComboBox.removeAllItems(); //Vaciamos el JComboBox
       ArrayList <String> managers = new ArrayList<String>();
@@ -197,6 +229,7 @@ public class RegisterProject extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButtom;
     public static javax.swing.JTextArea descriptionTextArea;
     private javax.swing.JTextField identificationTextField;
     private javax.swing.JScrollPane jScrollPane1;

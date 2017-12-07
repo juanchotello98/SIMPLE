@@ -34,226 +34,160 @@ public class EditEquipmentForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        oldValuesLabel = new javax.swing.JLabel();
-        oldSerieTextField = new javax.swing.JTextField();
-        oldCodeLabel = new javax.swing.JLabel();
-        oldNameLabel = new javax.swing.JLabel();
-        oldSerielNumber = new javax.swing.JLabel();
-        oldDescriptionLabel = new javax.swing.JLabel();
-        oldStateLabel = new javax.swing.JLabel();
-        oldCodeTextField = new javax.swing.JTextField();
-        oldNameTextField = new javax.swing.JTextField();
-        editEquipmentLabel = new javax.swing.JLabel();
+        registerLabel = new javax.swing.JLabel();
+        editButtom = new javax.swing.JButton();
+        newCodeLabel = new javax.swing.JLabel();
         newSerieTextField = new javax.swing.JTextField();
+        newCodeTextField = new javax.swing.JTextField();
         newNameLabel = new javax.swing.JLabel();
         newStateComboBox = new javax.swing.JComboBox<>();
         newSerielNumber = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        newDescriptionTextArea = new javax.swing.JTextArea();
         newDescriptionLabel = new javax.swing.JLabel();
         newStateLabel = new javax.swing.JLabel();
         newNameTextField = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        editButtom = new javax.swing.JButton();
-        oldStateTextField = new javax.swing.JTextField();
-        newCodeLabel = new javax.swing.JLabel();
-        newCodeTextField = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        oldDescriptionTextArea = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        newDescriptionTextArea = new javax.swing.JTextArea();
+        backButtom = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(600, 433));
 
-        oldValuesLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        oldValuesLabel.setText("Valores Antiguos");
+        registerLabel.setBackground(new java.awt.Color(153, 153, 153));
+        registerLabel.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
+        registerLabel.setForeground(new java.awt.Color(235, 30, 0));
+        registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registerLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/EditarEquipoTitle.png"))); // NOI18N
+        registerLabel.setAlignmentY(0.0F);
+        registerLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        oldSerieTextField.setEditable(false);
-        oldSerieTextField.setBackground(new java.awt.Color(204, 204, 204));
-
-        oldCodeLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        oldCodeLabel.setText("Codigo");
-
-        oldNameLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        oldNameLabel.setText("Articulo");
-
-        oldSerielNumber.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        oldSerielNumber.setText("Numero de serie");
-
-        oldDescriptionLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        oldDescriptionLabel.setText("Descripcion");
-
-        oldStateLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        oldStateLabel.setText("Estado");
-
-        oldCodeTextField.setEditable(false);
-        oldCodeTextField.setBackground(new java.awt.Color(204, 204, 204));
-
-        oldNameTextField.setEditable(false);
-        oldNameTextField.setBackground(new java.awt.Color(204, 204, 204));
-
-        editEquipmentLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        editEquipmentLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        editEquipmentLabel.setText("Editar Equipo");
-        editEquipmentLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        newNameLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        newNameLabel.setText("Articulo");
-
-        newStateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo", "Prestado", "Atrasado" }));
-
-        newSerielNumber.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        newSerielNumber.setText("Numero de serie");
-
-        newDescriptionLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        newDescriptionLabel.setText("Descripcion");
-
-        newStateLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        newStateLabel.setText("Estado");
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setText("Nuevos Valores");
-
-        editButtom.setText("Editar");
+        editButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/GuardarButtom.png"))); // NOI18N
+        editButtom.setBorderPainted(false);
+        editButtom.setContentAreaFilled(false);
+        editButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtomActionPerformed(evt);
             }
         });
 
-        oldStateTextField.setEditable(false);
-        oldStateTextField.setBackground(new java.awt.Color(204, 204, 204));
-
-        newCodeLabel.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        newCodeLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        newCodeLabel.setForeground(new java.awt.Color(235, 30, 0));
         newCodeLabel.setText("Codigo");
+
+        newSerieTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        newSerieTextField.setMinimumSize(new java.awt.Dimension(6, 27));
+        newSerieTextField.setPreferredSize(new java.awt.Dimension(6, 28));
 
         newCodeTextField.setEditable(false);
         newCodeTextField.setBackground(new java.awt.Color(204, 204, 204));
+        newCodeTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        newCodeTextField.setMinimumSize(new java.awt.Dimension(6, 27));
+        newCodeTextField.setPreferredSize(new java.awt.Dimension(6, 28));
 
-        oldDescriptionTextArea.setEditable(false);
-        oldDescriptionTextArea.setColumns(20);
-        oldDescriptionTextArea.setRows(5);
-        oldDescriptionTextArea.setLineWrap(true);
-        oldDescriptionTextArea.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(oldDescriptionTextArea);
+        newNameLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        newNameLabel.setForeground(new java.awt.Color(235, 30, 0));
+        newNameLabel.setText("Articulo");
+
+        newStateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo", "Prestado", "Atrasado" }));
+        newStateComboBox.setMinimumSize(new java.awt.Dimension(28, 27));
+        newStateComboBox.setPreferredSize(new java.awt.Dimension(28, 27));
+
+        newSerielNumber.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        newSerielNumber.setForeground(new java.awt.Color(235, 30, 0));
+        newSerielNumber.setText("Numero de serie");
 
         newDescriptionTextArea.setColumns(20);
+        newDescriptionTextArea.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         newDescriptionTextArea.setRows(5);
         newDescriptionTextArea.setLineWrap(true);
         newDescriptionTextArea.setWrapStyleWord(true);
         jScrollPane2.setViewportView(newDescriptionTextArea);
 
+        newDescriptionLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        newDescriptionLabel.setForeground(new java.awt.Color(235, 30, 0));
+        newDescriptionLabel.setText("Descripcion");
+
+        newStateLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        newStateLabel.setForeground(new java.awt.Color(235, 30, 0));
+        newStateLabel.setText("Estado");
+
+        newNameTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        newNameTextField.setMinimumSize(new java.awt.Dimension(6, 27));
+        newNameTextField.setPreferredSize(new java.awt.Dimension(6, 28));
+
+        backButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CancelarButton.png"))); // NOI18N
+        backButtom.setBorderPainted(false);
+        backButtom.setContentAreaFilled(false);
+        backButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtomActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(editEquipmentLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addComponent(registerLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(oldSerielNumber)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(oldNameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(oldCodeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(oldDescriptionLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(oldStateLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(oldCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(oldNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(oldSerieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(oldStateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(oldValuesLabel)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(newCodeLabel)
                             .addComponent(newSerielNumber)
                             .addComponent(newNameLabel)
-                            .addComponent(newCodeLabel)
-                            .addComponent(newDescriptionLabel)
-                            .addComponent(newStateLabel))
+                            .addComponent(newStateLabel)
+                            .addComponent(newDescriptionLabel)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(newNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(newSerieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(newCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(newStateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(newCodeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(newNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(newSerieTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2)
+                            .addComponent(newStateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(92, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(editButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(222, 222, 222))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(47, 47, 47)))
-                .addGap(16, 16, 16))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(editEquipmentLabel)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(oldValuesLabel)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(oldCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(oldCodeLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(oldNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(oldNameLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(oldSerieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(oldSerielNumber))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(oldDescriptionLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(oldStateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(oldStateLabel))
-                        .addGap(65, 65, 65))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(231, 231, 231)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(newStateLabel)
-                                    .addComponent(newStateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(newCodeLabel)
-                                    .addComponent(newCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(newNameLabel)
-                                    .addComponent(newNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(newSerielNumber)
-                                    .addComponent(newSerieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(newDescriptionLabel))
-                                .addGap(44, 44, 44)))
-                        .addComponent(editButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))))
+                .addContainerGap()
+                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newCodeLabel)
+                    .addComponent(newCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newNameLabel)
+                    .addComponent(newNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newSerielNumber)
+                    .addComponent(newSerieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newDescriptionLabel)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newStateLabel)
+                    .addComponent(newStateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -266,8 +200,8 @@ public class EditEquipmentForm extends javax.swing.JPanel {
         String stateEquipment;
 
         if(newNameTextField.getText().length()>0 && newSerieTextField.getText().length()>0 && newDescriptionTextArea.getText().length()>0){
-            
-            numberEquipment=oldCodeTextField.getText();
+
+            numberEquipment=newCodeTextField.getText();
             nameEquipment=newNameTextField.getText();
             serieEquipment=newSerieTextField.getText();
             descriptionEquipment=newDescriptionTextArea.getText();
@@ -288,6 +222,18 @@ public class EditEquipmentForm extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Por favor completa todos los campos");
         }
     }//GEN-LAST:event_editButtomActionPerformed
+
+    private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
+        // TODO add your handling code here:
+        EditEquipment editEquipment = new EditEquipment();
+        editEquipment.setSize(639,483);
+        editEquipment.setLocation(0,0);
+
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
+        this.add(editEquipment);
+    }//GEN-LAST:event_backButtomActionPerformed
 
     public void limpiar_texto(JPanel panel){
         for(int i = 0; panel.getComponents().length > i; i++){
@@ -318,20 +264,18 @@ public class EditEquipmentForm extends javax.swing.JPanel {
         newSerieTextField.setText(serial);
         newDescriptionTextArea.setText(description);
         
-        oldCodeTextField.setText(code);
+       /* oldCodeTextField.setText(code);
         oldNameTextField.setText(name);
         oldSerieTextField.setText(serial);
         oldDescriptionTextArea.setText(description);
-        oldStateTextField.setText(state);
+        oldStateTextField.setText(state);*/
         //stateEquipment=(String)newStateComboBox.getSelectedItem();
         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButtom;
     private javax.swing.JButton editButtom;
-    private javax.swing.JLabel editEquipmentLabel;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel newCodeLabel;
     private javax.swing.JTextField newCodeTextField;
@@ -343,16 +287,6 @@ public class EditEquipmentForm extends javax.swing.JPanel {
     private javax.swing.JLabel newSerielNumber;
     public static javax.swing.JComboBox<String> newStateComboBox;
     private javax.swing.JLabel newStateLabel;
-    private javax.swing.JLabel oldCodeLabel;
-    private javax.swing.JTextField oldCodeTextField;
-    private javax.swing.JLabel oldDescriptionLabel;
-    private javax.swing.JTextArea oldDescriptionTextArea;
-    private javax.swing.JLabel oldNameLabel;
-    private javax.swing.JTextField oldNameTextField;
-    private javax.swing.JTextField oldSerieTextField;
-    private javax.swing.JLabel oldSerielNumber;
-    private javax.swing.JLabel oldStateLabel;
-    private javax.swing.JTextField oldStateTextField;
-    private javax.swing.JLabel oldValuesLabel;
+    private javax.swing.JLabel registerLabel;
     // End of variables declaration//GEN-END:variables
 }

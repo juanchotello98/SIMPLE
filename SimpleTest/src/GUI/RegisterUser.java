@@ -32,169 +32,172 @@ public class RegisterUser extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelImage1 = new org.edisoncor.gui.panel.PanelImage();
-        registerLabel = new javax.swing.JLabel();
-        identificationTextField = new javax.swing.JTextField();
-        lastNameTextField = new javax.swing.JTextField();
-        firstNameTextField = new javax.swing.JTextField();
-        phoneTextField = new javax.swing.JTextField();
-        emailTextField = new javax.swing.JTextField();
         nameLabel = new javax.swing.JLabel();
         nameLabel1 = new javax.swing.JLabel();
         nameLabel5 = new javax.swing.JLabel();
         nameLabel6 = new javax.swing.JLabel();
         nameLabel7 = new javax.swing.JLabel();
+        registerLabel = new javax.swing.JLabel();
         nameLabel8 = new javax.swing.JLabel();
+        identificationTextField = new javax.swing.JTextField();
         typeIDComboBox = new javax.swing.JComboBox<>();
+        lastNameTextField = new javax.swing.JTextField();
         chargeComboBox = new javax.swing.JComboBox<>();
+        firstNameTextField = new javax.swing.JTextField();
         registerUserButtom = new javax.swing.JButton();
+        phoneTextField = new javax.swing.JTextField();
+        emailTextField = new javax.swing.JTextField();
+        backButtom = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cuadro.png"))); // NOI18N
+        nameLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(235, 30, 0));
+        nameLabel.setText("Email");
+
+        nameLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        nameLabel1.setForeground(new java.awt.Color(235, 30, 0));
+        nameLabel1.setText("Telefono");
+
+        nameLabel5.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        nameLabel5.setForeground(new java.awt.Color(235, 30, 0));
+        nameLabel5.setText("Nombres");
+
+        nameLabel6.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        nameLabel6.setForeground(new java.awt.Color(235, 30, 0));
+        nameLabel6.setText("Identificacion");
+
+        nameLabel7.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        nameLabel7.setForeground(new java.awt.Color(235, 30, 0));
+        nameLabel7.setText("Cargo");
 
         registerLabel.setBackground(new java.awt.Color(153, 153, 153));
         registerLabel.setFont(new java.awt.Font("Nirmala UI", 1, 36)); // NOI18N
         registerLabel.setForeground(new java.awt.Color(235, 30, 0));
-        registerLabel.setText("Registrar  Usuario");
+        registerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registerLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/RegistrarUsuarioTitle.png"))); // NOI18N
         registerLabel.setAlignmentY(0.0F);
         registerLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        identificationTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        identificationTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        lastNameTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        lastNameTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        firstNameTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        firstNameTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        phoneTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        phoneTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        emailTextField.setFont(new java.awt.Font("Corbel", 1, 18)); // NOI18N
-        emailTextField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        nameLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        nameLabel.setForeground(new java.awt.Color(235, 30, 0));
-        nameLabel.setText("Email");
-
-        nameLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        nameLabel1.setForeground(new java.awt.Color(235, 30, 0));
-        nameLabel1.setText("Telefono");
-
-        nameLabel5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        nameLabel5.setForeground(new java.awt.Color(235, 30, 0));
-        nameLabel5.setText("Nombres");
-
-        nameLabel6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        nameLabel6.setForeground(new java.awt.Color(235, 30, 0));
-        nameLabel6.setText("Identificacion");
-
-        nameLabel7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        nameLabel7.setForeground(new java.awt.Color(235, 30, 0));
-        nameLabel7.setText("Cargo");
-
-        nameLabel8.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        nameLabel8.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         nameLabel8.setForeground(new java.awt.Color(235, 30, 0));
         nameLabel8.setText("Apellidos");
 
+        identificationTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
         typeIDComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo de Estudiante", "Cedula de Ciudadanìa", "Tarjeta de Identidad", "Cedula de Extranjerìa"}));
+        typeIDComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        lastNameTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         chargeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Miembro", "Coordinador de Equipos", "Lider de Proyecto", "Director de Laboratorio", "Administrador" }));
+        chargeComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        registerUserButtom.setText("Registrar");
+        firstNameTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        registerUserButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/RegistrarButtom.png"))); // NOI18N
+        registerUserButtom.setBorderPainted(false);
+        registerUserButtom.setContentAreaFilled(false);
+        registerUserButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registerUserButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerUserButtomActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
-        panelImage1.setLayout(panelImage1Layout);
-        panelImage1Layout.setHorizontalGroup(
-            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImage1Layout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
-                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage1Layout.createSequentialGroup()
-                        .addComponent(registerUserButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(225, 225, 225))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage1Layout.createSequentialGroup()
-                        .addComponent(registerLabel)
-                        .addGap(148, 148, 148))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage1Layout.createSequentialGroup()
-                        .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nameLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nameLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nameLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nameLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(chargeComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(phoneTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelImage1Layout.createSequentialGroup()
-                                .addComponent(identificationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(typeIDComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
-        );
-        panelImage1Layout.setVerticalGroup(
-            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImage1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(registerLabel)
-                .addGap(18, 18, 18)
-                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(identificationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameLabel6)
-                    .addComponent(typeIDComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameLabel5))
-                .addGap(16, 16, 16)
-                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameLabel8))
-                .addGap(16, 16, 16)
-                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameLabel))
-                .addGap(16, 16, 16)
-                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameLabel7)
-                    .addComponent(chargeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(registerUserButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-        );
+        phoneTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        emailTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+
+        backButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/CancelarButton.png"))); // NOI18N
+        backButtom.setBorderPainted(false);
+        backButtom.setContentAreaFilled(false);
+        backButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        backButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtomActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(registerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 46, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(230, 230, 230)
+                                .addComponent(registerUserButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(105, 105, 105))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(nameLabel1)
+                                            .addComponent(nameLabel7)
+                                            .addComponent(nameLabel)
+                                            .addComponent(nameLabel8)
+                                            .addComponent(nameLabel5))
+                                        .addGap(12, 12, 12))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(nameLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(chargeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(firstNameTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(identificationTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(typeIDComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(40, 40, 40))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelImage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(registerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(typeIDComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(identificationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nameLabel6)))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameLabel5))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameLabel8))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameLabel))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameLabel7)
+                    .addComponent(chargeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(registerUserButtom, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(backButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -240,6 +243,18 @@ public class RegisterUser extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_registerUserButtomActionPerformed
 
+    private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
+        // TODO add your handling code here:
+        MenuUser menuUser = new MenuUser();
+        menuUser.setSize(639,483);
+        menuUser.setLocation(0,0);
+
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
+        this.add(menuUser);
+    }//GEN-LAST:event_backButtomActionPerformed
+
     public void limpiar_texto(){  
         identificationTextField.setText("");
         firstNameTextField.setText("");
@@ -249,6 +264,7 @@ public class RegisterUser extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButtom;
     private javax.swing.JComboBox<String> chargeComboBox;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTextField firstNameTextField;
@@ -256,32 +272,13 @@ public class RegisterUser extends javax.swing.JPanel {
     private javax.swing.JTextField lastNameTextField;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel nameLabel1;
-    private javax.swing.JLabel nameLabel2;
-    private javax.swing.JLabel nameLabel3;
-    private javax.swing.JLabel nameLabel4;
     private javax.swing.JLabel nameLabel5;
     private javax.swing.JLabel nameLabel6;
     private javax.swing.JLabel nameLabel7;
     private javax.swing.JLabel nameLabel8;
-    private javax.swing.JTextField nameTextField2;
-    private javax.swing.JTextField nameTextField3;
-    private javax.swing.JTextField nameTextField4;
-    private org.edisoncor.gui.panel.PanelImage panelImage1;
-    private org.edisoncor.gui.panel.PanelImage panelImage14;
-    private org.edisoncor.gui.panel.PanelImage panelImage15;
-    private org.edisoncor.gui.panel.PanelImage panelImage16;
     private javax.swing.JTextField phoneTextField;
-    private javax.swing.JButton registerButtom6;
-    private javax.swing.JButton registerButtom7;
-    private javax.swing.JButton registerButtom8;
     private javax.swing.JLabel registerLabel;
     private javax.swing.JButton registerUserButtom;
-    private javax.swing.JTextField serieTextField2;
-    private javax.swing.JTextField serieTextField3;
-    private javax.swing.JTextField serieTextField4;
-    private javax.swing.JLabel serielNumber2;
-    private javax.swing.JLabel serielNumber3;
-    private javax.swing.JLabel serielNumber4;
     private javax.swing.JComboBox<String> typeIDComboBox;
     // End of variables declaration//GEN-END:variables
 }
