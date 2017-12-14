@@ -6,6 +6,7 @@
 package GUI;
 
 import Controller.UserControl;
+import Logic.User;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,12 +15,14 @@ import javax.swing.JOptionPane;
  */
 public class EditUserForm extends javax.swing.JPanel {
     UserControl userControl;
+    User sessionUser;
     /**
      * Creates new form EditUserForm
      */
-    public EditUserForm() {
+    public EditUserForm(User sessionUser) {
         initComponents();
         userControl = new UserControl();
+        this.sessionUser=sessionUser;
     }
 
     /**
@@ -166,13 +169,13 @@ public class EditUserForm extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(newIdentificationTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                    .addComponent(newFirstNameTextField))
+                                    .addComponent(newFirstNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                    .addComponent(newIdentificationTextField))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(newTypeIDComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(newCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(editButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(editButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(newTypeIDComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(54, 54, 54))))))
         );
         layout.setVerticalGroup(
@@ -182,9 +185,8 @@ public class EditUserForm extends javax.swing.JPanel {
                 .addComponent(editEquipmentLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(nameLabel15)
-                        .addComponent(newIdentificationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nameLabel15)
+                    .addComponent(newIdentificationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(newTypeIDComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +214,7 @@ public class EditUserForm extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(newStateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(backButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editButtom, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
@@ -263,7 +265,7 @@ public class EditUserForm extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        EditUser editUser = new EditUser();
+        EditUser editUser = new EditUser(sessionUser);
         editUser.setSize(639,483);
         editUser.setLocation(0,0);
 
@@ -275,7 +277,7 @@ public class EditUserForm extends javax.swing.JPanel {
 
     public void loadEditUSer(){
     
-        EditUser editUser = new EditUser();
+        EditUser editUser = new EditUser(sessionUser);
         editUser.setSize(639,483);
         editUser.setLocation(0,0);
 

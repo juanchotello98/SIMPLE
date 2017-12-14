@@ -5,17 +5,20 @@
  */
 package GUI;
 
+import Logic.User;
+
 /**
  *
  * @author Diego
  */
 public class ShowInfoEquipment extends javax.swing.JPanel {
-
+    User sessionUser;
     /**
      * Creates new form ShowInfoEquipment
      */
-    public ShowInfoEquipment() {
+    public ShowInfoEquipment(User sessionUser) {
         initComponents();
+        this.sessionUser=sessionUser;
     }
 
     /**
@@ -168,7 +171,7 @@ public class ShowInfoEquipment extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        ListEquipment listEquipment = new ListEquipment();
+        ListEquipment listEquipment = new ListEquipment(sessionUser);
         listEquipment.setSize(639,483);
         listEquipment.setLocation(0,0);
         

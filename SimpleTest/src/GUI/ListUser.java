@@ -17,13 +17,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ListUser extends javax.swing.JPanel {
     UserControl userControl;
+    User sessionUser;
     /**
      * Creates new form ListUser
      */
-    public ListUser() {
+    public ListUser(User sessionUser) {
         initComponents();
         userControl = new UserControl();
         loadUsers();
+        this.sessionUser=sessionUser;
     }
     
     /**
@@ -227,7 +229,7 @@ public class ListUser extends javax.swing.JPanel {
         
         int row = userTable.getSelectedRow();
         if(row!=-1){
-        ShowInfoUser showInfoUser = new ShowInfoUser();
+        ShowInfoUser showInfoUser = new ShowInfoUser(sessionUser);
         showInfoUser.setSize(639,494);
         showInfoUser.setLocation(0,0);
         
@@ -257,7 +259,7 @@ public class ListUser extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        MenuUser menuUser = new MenuUser();
+        MenuUser menuUser = new MenuUser(sessionUser);
         menuUser.setSize(639,483);
         menuUser.setLocation(0,0);
 

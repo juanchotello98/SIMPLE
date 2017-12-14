@@ -5,17 +5,21 @@
  */
 package GUI;
 
+import Logic.User;
+
 /**
  *
  * @author Diego
  */
 public class MenuProject extends javax.swing.JPanel {
-
+    User sessionUser;
     /**
      * Creates new form MenuProject
      */
-    public MenuProject() {
+    public MenuProject(User sessionUser) {
         initComponents();
+        this.sessionUser=sessionUser;
+        displayMenu(sessionUser.getCharge());
     }
 
     /**
@@ -27,23 +31,27 @@ public class MenuProject extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        listUserButtom = new javax.swing.JButton();
+        listProjectButtom = new javax.swing.JButton();
         registerProjectButtom = new javax.swing.JButton();
         editProjectButtom = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        editLabel = new javax.swing.JLabel();
+        listLabel = new javax.swing.JLabel();
+        registerLabel = new javax.swing.JLabel();
+        myProjectButtom = new javax.swing.JButton();
+        myProjectLabel = new javax.swing.JLabel();
+        linkUserButtom = new javax.swing.JButton();
+        linkUserLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        listUserButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ListarProyectos.png"))); // NOI18N
-        listUserButtom.setBorderPainted(false);
-        listUserButtom.setContentAreaFilled(false);
-        listUserButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        listUserButtom.setPreferredSize(new java.awt.Dimension(130, 130));
-        listUserButtom.addActionListener(new java.awt.event.ActionListener() {
+        listProjectButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ListarProyectos.png"))); // NOI18N
+        listProjectButtom.setBorderPainted(false);
+        listProjectButtom.setContentAreaFilled(false);
+        listProjectButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        listProjectButtom.setPreferredSize(new java.awt.Dimension(130, 130));
+        listProjectButtom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listUserButtomActionPerformed(evt);
+                listProjectButtomActionPerformed(evt);
             }
         });
 
@@ -69,73 +77,165 @@ public class MenuProject extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(235, 30, 0));
-        jLabel1.setText("Editar Proyectos");
+        editLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        editLabel.setForeground(new java.awt.Color(235, 30, 0));
+        editLabel.setText("Editar Proyectos");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(235, 30, 0));
-        jLabel2.setText("Listar Proyectos");
+        listLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        listLabel.setForeground(new java.awt.Color(235, 30, 0));
+        listLabel.setText("Listar Proyectos");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(235, 30, 0));
-        jLabel3.setText("Registrar Proyectos");
+        registerLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        registerLabel.setForeground(new java.awt.Color(235, 30, 0));
+        registerLabel.setText("Registrar Proyectos");
+
+        myProjectButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Mis proyectosButtom.png"))); // NOI18N
+        myProjectButtom.setBorderPainted(false);
+        myProjectButtom.setContentAreaFilled(false);
+        myProjectButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        myProjectButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myProjectButtomActionPerformed(evt);
+            }
+        });
+
+        myProjectLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        myProjectLabel.setForeground(new java.awt.Color(235, 30, 0));
+        myProjectLabel.setText("Mis Proyectos");
+
+        linkUserButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/AsociarUser.png"))); // NOI18N
+        linkUserButtom.setBorderPainted(false);
+        linkUserButtom.setContentAreaFilled(false);
+        linkUserButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        linkUserButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linkUserButtomActionPerformed(evt);
+            }
+        });
+
+        linkUserLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        linkUserLabel.setForeground(new java.awt.Color(235, 30, 0));
+        linkUserLabel.setText("Vincular Usuario");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(listUserButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jLabel2)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editProjectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jLabel1)
-                        .addContainerGap(92, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(registerProjectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(110, 110, 110)
+                        .addComponent(myProjectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(myProjectLabel)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(linkUserLabel)
+                        .addGap(88, 88, 88))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(linkUserButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(registerLabel)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(registerProjectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(listLabel)
+                    .addComponent(listProjectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(editProjectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))
+                    .addComponent(editLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(linkUserButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(myProjectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(myProjectLabel)
+                    .addComponent(linkUserLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(listUserButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(listProjectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(registerProjectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(listLabel)
+                            .addComponent(registerLabel)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(editProjectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addComponent(registerProjectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(30, 30, 30))
+                        .addComponent(editLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(72, 72, 72))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listUserButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listUserButtomActionPerformed
+        public void displayMenu(String userCharge){
+        switch (userCharge) {
+        case "Administrador":
+        listProjectButtom.setVisible(true);
+        editProjectButtom.setVisible(true);
+        registerProjectButtom.setVisible(true);
+        myProjectButtom.setVisible(true);
+        linkUserButtom.setVisible(true);
+        break;
+        case "Miembro":
+        listProjectButtom.setVisible(true);
+        editProjectButtom.setVisible(false);
+        editLabel.setVisible(false);
+        registerProjectButtom.setVisible(false);
+        registerLabel.setVisible(false);
+        myProjectButtom.setVisible(true);
+        linkUserButtom.setVisible(false);  
+        linkUserLabel.setVisible(false);
+        break;
+        case "Coordinador de Equipos":
+        listProjectButtom.setVisible(true);
+        editProjectButtom.setVisible(false);
+        editLabel.setVisible(false);
+        registerProjectButtom.setVisible(false);
+        registerLabel.setVisible(false);
+        myProjectButtom.setVisible(true);
+        linkUserButtom.setVisible(false);
+        linkUserLabel.setVisible(false);
+        break;
+        case "Lider de Proyecto":
+        listProjectButtom.setVisible(true);
+        editProjectButtom.setVisible(true);
+        registerProjectButtom.setVisible(true);
+        myProjectButtom.setVisible(true);
+        linkUserButtom.setVisible(true);
+        break;
+        case "Director de Laboratorio":
+        listProjectButtom.setVisible(true);
+        editProjectButtom.setVisible(true);
+        registerProjectButtom.setVisible(true);
+        myProjectButtom.setVisible(true);
+        linkUserButtom.setVisible(true);
+        break;
+        default:
+        System.out.println("error" );
+        break;}      
+}
+    
+    private void listProjectButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listProjectButtomActionPerformed
         // TODO add your handling code here:
 
-        ListProject listProject = new ListProject();
+        ListProject listProject = new ListProject(sessionUser);
         listProject.setSize(639,483);
         listProject.setLocation(0,0);
 
@@ -143,11 +243,11 @@ public class MenuProject extends javax.swing.JPanel {
         this.revalidate();
         this.repaint();
         this.add(listProject);
-    }//GEN-LAST:event_listUserButtomActionPerformed
+    }//GEN-LAST:event_listProjectButtomActionPerformed
 
     private void registerProjectButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerProjectButtomActionPerformed
         // TODO add your handling code here:
-        RegisterProject registerProject = new RegisterProject();
+        RegisterProject registerProject = new RegisterProject(sessionUser);
         registerProject.setSize(639,483);
         registerProject.setLocation(0,0);
 
@@ -160,7 +260,7 @@ public class MenuProject extends javax.swing.JPanel {
 
     private void editProjectButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editProjectButtomActionPerformed
         // TODO add your handling code here:
-        EditProject editProject = new EditProject();
+        EditProject editProject = new EditProject(sessionUser);
         editProject.setSize(639,483);
         editProject.setLocation(0,0);
 
@@ -170,13 +270,42 @@ public class MenuProject extends javax.swing.JPanel {
         this.add(editProject);
     }//GEN-LAST:event_editProjectButtomActionPerformed
 
+    private void myProjectButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myProjectButtomActionPerformed
+        // TODO add your handling code here:
+        ListProfileProject listProjectProfile = new ListProfileProject(sessionUser);
+        listProjectProfile.setSize(639,483);
+        listProjectProfile.setLocation(0,0);
+
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
+        this.add(listProjectProfile);
+    }//GEN-LAST:event_myProjectButtomActionPerformed
+
+    private void linkUserButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linkUserButtomActionPerformed
+        // TODO add your handling code here:
+        LinkUser linkUser = new LinkUser(sessionUser);
+        linkUser.setSize(639,483);
+        linkUser.setLocation(0,0);
+
+        this.removeAll();
+        this.revalidate();
+        this.repaint();
+        this.add(linkUser);
+        
+    }//GEN-LAST:event_linkUserButtomActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel editLabel;
     private javax.swing.JButton editProjectButtom;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JButton listUserButtom;
+    private javax.swing.JButton linkUserButtom;
+    private javax.swing.JLabel linkUserLabel;
+    private javax.swing.JLabel listLabel;
+    private javax.swing.JButton listProjectButtom;
+    private javax.swing.JButton myProjectButtom;
+    private javax.swing.JLabel myProjectLabel;
+    private javax.swing.JLabel registerLabel;
     private javax.swing.JButton registerProjectButtom;
     // End of variables declaration//GEN-END:variables
 }

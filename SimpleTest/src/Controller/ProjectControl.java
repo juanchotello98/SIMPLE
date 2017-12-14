@@ -28,6 +28,14 @@ public class ProjectControl {
          
          return projects;      
     }   
+    
+    public ArrayList<Object[]> listProjectProfile(String userIdentification){
+    
+         ArrayList <Object[]> projectsProfile = new ArrayList <>();
+         projectsProfile = projectDAO.listProjectProfile(userIdentification);
+         
+         return projectsProfile;      
+    } 
      
     public Project searchProject(String inputValue,String typeSearch){
         
@@ -96,6 +104,19 @@ public class ProjectControl {
         System.out.println("Se insertarà un Proyecto");
         
         int result = projectDAO.updateProject(project);
+
+        System.out.println("Se insertò un Proyecto");
+        
+        return result;
+
+    }
+
+    public int linkUser(String codeProject, String identificationProject, String code, String identification){
+
+        //Se llama al dao para guardar
+        System.out.println("Se vinculara un usuario");
+        
+        int result = projectDAO.linkUser(codeProject, identificationProject, code, identification);
 
         System.out.println("Se insertò un Proyecto");
         

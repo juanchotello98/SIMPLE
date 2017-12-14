@@ -6,6 +6,7 @@
 package GUI;
 
 import Controller.UserControl;
+import Logic.User;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,13 +15,15 @@ import javax.swing.JOptionPane;
  */
 public class RegisterUser extends javax.swing.JPanel {
         UserControl userControl;
+        User sessionUser;
     
     /**
      * Creates new form RegisterUser
      */
-    public RegisterUser() {
+    public RegisterUser(User sessionUser) {
         initComponents();
         userControl = new UserControl();
+        this.sessionUser=sessionUser;
     }
 
     /**
@@ -195,8 +198,8 @@ public class RegisterUser extends javax.swing.JPanel {
                     .addComponent(chargeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(registerUserButtom, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                    .addComponent(backButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(registerUserButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(backButtom, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
                 .addGap(35, 35, 35))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -245,7 +248,7 @@ public class RegisterUser extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        MenuUser menuUser = new MenuUser();
+        MenuUser menuUser = new MenuUser(sessionUser);
         menuUser.setSize(639,483);
         menuUser.setLocation(0,0);
 

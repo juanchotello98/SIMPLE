@@ -6,6 +6,7 @@
 package GUI;
 
 import Controller.ProjectControl;
+import Logic.User;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -16,12 +17,14 @@ import javax.swing.JOptionPane;
  */
 public class RegisterProject extends javax.swing.JPanel {
     ProjectControl projectControl;
+    User sessionUser;
     /**
      * Creates new form RegisterProject
      */
-    public RegisterProject() {
+    public RegisterProject(User sessionUser) {
         initComponents();
         projectControl = new ProjectControl();
+        this.sessionUser=sessionUser;
         llenarCB();
     }
 
@@ -161,7 +164,7 @@ public class RegisterProject extends javax.swing.JPanel {
                 .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(registerButtom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(backButtom, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
                 .addGap(36, 36, 36))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -190,7 +193,7 @@ public class RegisterProject extends javax.swing.JPanel {
                 limpiar_texto();
             }
             else {
-                JOptionPane.showMessageDialog(null, "Ocurrio un problema al guardar el Equipo");
+                JOptionPane.showMessageDialog(null, "Ocurrio un problema al guardar el Proyecto");
             }
         }
         else{
@@ -200,7 +203,7 @@ public class RegisterProject extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        MenuProject menuProject = new MenuProject();
+        MenuProject menuProject = new MenuProject(sessionUser);
         menuProject.setSize(639,483);
         menuProject.setLocation(0,0);
 

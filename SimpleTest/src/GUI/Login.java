@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Controller.CheckControl;
 import Controller.UserControl;
 import DataAccess.Conection;
 import Logic.User;
@@ -23,18 +24,20 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
     
     UserControl userControl;
+    CheckControl checkControl;
     /**
      * Creates new form Login2
      */
     public Login() {
         userControl = new UserControl();
+        checkControl = new CheckControl();
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("Login SIMPLE");
-        
+        checkControl.checkLoans();
+        checkControl.checkAvailableReserves();    
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -225,39 +228,31 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:    
     String userIdentificacion;
     String userPassword = null;
-    User user;
+    User userSession;
     
     if(codeTextField.getText().length()>0 && !passwordTextField.getText().equals("")){
         
         userIdentificacion=codeTextField.getText();
         userPassword = new String(passwordTextField.getPassword());
                 
-        user = userControl.verifyLogin(userIdentificacion);
+        userSession = userControl.verifyLogin(userIdentificacion);
                 
-        if (user.getIdentification()!=null){
+        if (userSession.getIdentification()!=null){
              
-             if (user.getIdentification().equals(userIdentificacion) && user.getPassword().equals(userPassword)){
+             if (userSession.getIdentification().equals(userIdentificacion) && userSession.getPassword().equals(userPassword)){
                  
-                JOptionPane.showMessageDialog(null, "Bienvenido "+user.getFirstName()); 
+                 if(userSession.getState().equals("Activo")){
                  
-                 switch (user.getCharge()) {
-                 case "Administrador":
-                   MainMenuAdministrador mainMenuAdministrador = new MainMenuAdministrador();
-                   mainMenuAdministrador.setVisible(true);
-                   dispose();
-                   break;
-                /* case '-':
-                   System.out.println( a - b );
-                      break;
-                 case '*':
-                   System.out.println( a * b );
-                      break;
-                 case '/':
-                   System.out.println( a / b );
-                      break;*/
-                 default:
-                 System.out.println("error" );
-                 break;}        
+                 JOptionPane.showMessageDialog(null, "Bienvenido "+userSession.getFirstName()); 
+                 
+                  MainMenuAdministrador mainMenuAdministrador = new MainMenuAdministrador(userSession);
+                  mainMenuAdministrador.setVisible(true);
+                  dispose();
+       
+             }
+                 else{
+                     JOptionPane.showMessageDialog(null, "El estado del usuario es "+userSession.getState()+" no puede Ingresar"); 
+                 }   
              }
              else{
                  JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");        

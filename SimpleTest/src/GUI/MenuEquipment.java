@@ -5,17 +5,21 @@
  */
 package GUI;
 
+import Logic.User;
+
 /**
  *
  * @author Diego
  */
 public class MenuEquipment extends javax.swing.JPanel {
-
+    User sessionUser;
     /**
      * Creates new form MenuEquipment
      */
-    public MenuEquipment() {
+    public MenuEquipment(User sessionUser) {
         initComponents();
+        this.sessionUser=sessionUser;
+        displayMenu(sessionUser.getCharge());
     }
 
     /**
@@ -31,9 +35,9 @@ public class MenuEquipment extends javax.swing.JPanel {
         RegisterEquipmentButtom = new javax.swing.JButton();
         listEquipmentButtom = new javax.swing.JButton();
         editEquipmentButtom = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        listLabel = new javax.swing.JLabel();
+        registerLabel = new javax.swing.JLabel();
+        editLabel = new javax.swing.JLabel();
 
         buttonCircle1.setText("buttonCircle1");
 
@@ -72,17 +76,17 @@ public class MenuEquipment extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(235, 30, 0));
-        jLabel1.setText("Listar Equipos");
+        listLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        listLabel.setForeground(new java.awt.Color(235, 30, 0));
+        listLabel.setText("Listar Equipos");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(235, 30, 0));
-        jLabel2.setText("Registrar Equipos");
+        registerLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        registerLabel.setForeground(new java.awt.Color(235, 30, 0));
+        registerLabel.setText("Registrar Equipos");
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(235, 30, 0));
-        jLabel3.setText("Editar Equipos");
+        editLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        editLabel.setForeground(new java.awt.Color(235, 30, 0));
+        editLabel.setText("Editar Equipos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -96,14 +100,14 @@ public class MenuEquipment extends javax.swing.JPanel {
                 .addGap(110, 110, 110))
             .addGroup(layout.createSequentialGroup()
                 .addGap(73, 73, 73)
-                .addComponent(jLabel1)
+                .addComponent(listLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addComponent(editLabel)
                 .addGap(97, 97, 97))
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(197, 197, 197)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(registerLabel)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(RegisterEquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -118,20 +122,56 @@ public class MenuEquipment extends javax.swing.JPanel {
                     .addComponent(listEquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                    .addComponent(listLabel)
+                    .addComponent(editLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(RegisterEquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(48, 48, 48))
+                .addComponent(registerLabel)
+                .addGap(57, 57, 57))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void displayMenu(String userCharge){
+        switch (userCharge) {
+        case "Administrador":
+        listEquipmentButtom.setVisible(true);
+        editEquipmentButtom.setVisible(true);
+        RegisterEquipmentButtom.setVisible(true);
+        break;
+        case "Miembro":
+        listEquipmentButtom.setVisible(true);
+        editEquipmentButtom.setVisible(false);
+        editLabel.setVisible(false);
+        RegisterEquipmentButtom.setVisible(false);
+        registerLabel.setVisible(false);
+        break;
+        case "Coordinador de Equipos":
+        listEquipmentButtom.setVisible(true);
+        editEquipmentButtom.setVisible(true);
+        RegisterEquipmentButtom.setVisible(true);
+        break;
+        case "Lider de Proyecto":
+        listEquipmentButtom.setVisible(true);
+        editEquipmentButtom.setVisible(false);
+        editLabel.setVisible(false);
+        RegisterEquipmentButtom.setVisible(false);
+        registerLabel.setVisible(false);
+        break;
+        case "Director de Laboratorio":
+        listEquipmentButtom.setVisible(true);
+        editEquipmentButtom.setVisible(true);
+        RegisterEquipmentButtom.setVisible(true);
+        break;
+        default:
+        System.out.println("error" );
+        break;}      
+}
+    
     private void RegisterEquipmentButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterEquipmentButtomActionPerformed
         // TODO add your handling code here:
         
-        RegisterEquipment registerEquipment = new RegisterEquipment();
+        RegisterEquipment registerEquipment = new RegisterEquipment(sessionUser);
         registerEquipment.setSize(639,483);
         registerEquipment.setLocation(0,0);
         
@@ -145,7 +185,7 @@ public class MenuEquipment extends javax.swing.JPanel {
     private void editEquipmentButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEquipmentButtomActionPerformed
         // TODO add your handling code here:
         
-        EditEquipment editarEquipment = new EditEquipment();
+        EditEquipment editarEquipment = new EditEquipment(sessionUser);
         editarEquipment.setSize(639,483);
         editarEquipment.setLocation(0,0);
         
@@ -159,7 +199,7 @@ public class MenuEquipment extends javax.swing.JPanel {
     private void listEquipmentButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listEquipmentButtomActionPerformed
         // TODO add your handling code here:
         
-        ListEquipment listEquipment = new ListEquipment();
+        ListEquipment listEquipment = new ListEquipment(sessionUser);
         listEquipment.setSize(639,483);
         listEquipment.setLocation(0,0);
         
@@ -174,9 +214,9 @@ public class MenuEquipment extends javax.swing.JPanel {
     private javax.swing.JButton RegisterEquipmentButtom;
     private org.edisoncor.gui.button.ButtonCircle buttonCircle1;
     private javax.swing.JButton editEquipmentButtom;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel editLabel;
     private javax.swing.JButton listEquipmentButtom;
+    private javax.swing.JLabel listLabel;
+    private javax.swing.JLabel registerLabel;
     // End of variables declaration//GEN-END:variables
 }

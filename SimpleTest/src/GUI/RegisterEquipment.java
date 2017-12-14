@@ -6,6 +6,7 @@
 package GUI;
 
 import Controller.EquipmentControl;
+import Logic.User;
 import static javax.management.Query.gt;
 import static javax.management.Query.lt;
 import javax.swing.JOptionPane;
@@ -20,12 +21,14 @@ import javax.swing.JTextField;
 public class RegisterEquipment extends javax.swing.JPanel {
     
     EquipmentControl equipmentControl;
+    User sessionUser;
     /**
      * Creates new form RegisterEquipment2
      */
-    public RegisterEquipment() {
+    public RegisterEquipment(User sessionUser) {
        initComponents();
        equipmentControl = new EquipmentControl();
+       this.sessionUser=sessionUser;
     }
 
     /**
@@ -183,7 +186,7 @@ public class RegisterEquipment extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        MenuEquipment menuEquipment = new MenuEquipment();
+        MenuEquipment menuEquipment = new MenuEquipment(sessionUser);
         menuEquipment.setSize(639,483);
         menuEquipment.setLocation(0,0);
 

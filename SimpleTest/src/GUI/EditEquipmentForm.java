@@ -7,6 +7,7 @@ package GUI;
 
 import Controller.EquipmentControl;
 import Logic.Equipment;
+import Logic.User;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -19,10 +20,12 @@ import javax.swing.JTextField;
 public class EditEquipmentForm extends javax.swing.JPanel {
 
     EquipmentControl equipmentControl;
+    User sessionUser;
     
-    public EditEquipmentForm() {
+    public EditEquipmentForm(User sessionUser) {
         initComponents();
         equipmentControl = new EquipmentControl();
+        this.sessionUser=sessionUser;
     }
 
     /**
@@ -88,7 +91,8 @@ public class EditEquipmentForm extends javax.swing.JPanel {
         newNameLabel.setForeground(new java.awt.Color(235, 30, 0));
         newNameLabel.setText("Articulo");
 
-        newStateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo", "Prestado", "Atrasado" }));
+        newStateComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Libre", "Ocupado", "Reservado", "Inactivo" }));
+        newStateComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         newStateComboBox.setMinimumSize(new java.awt.Dimension(28, 27));
         newStateComboBox.setPreferredSize(new java.awt.Dimension(28, 27));
 
@@ -225,7 +229,7 @@ public class EditEquipmentForm extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        EditEquipment editEquipment = new EditEquipment();
+        EditEquipment editEquipment = new EditEquipment(sessionUser);
         editEquipment.setSize(639,483);
         editEquipment.setLocation(0,0);
 
@@ -247,7 +251,7 @@ public class EditEquipmentForm extends javax.swing.JPanel {
     }
     
     public void loadEditEquipment(){
-        EditEquipment editarEquipment = new EditEquipment();
+        EditEquipment editarEquipment = new EditEquipment(sessionUser);
         editarEquipment.setSize(639,483);
         editarEquipment.setLocation(0,0);
         

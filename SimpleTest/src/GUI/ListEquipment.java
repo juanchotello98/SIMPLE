@@ -6,8 +6,10 @@
 package GUI;
 
 import Controller.EquipmentControl;
+import Controller.LoanControl;
 import DataAccess.Conection;
 import Logic.Equipment;
+import Logic.User;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,13 +25,17 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ListEquipment extends javax.swing.JPanel {
     EquipmentControl equipmentControl;
+    LoanControl loanControl;
+    User sessionUser;
 
     /**
      * Creates new form ListEquipment
      */
-    public ListEquipment() {
+    public ListEquipment(User sessionUser) {
         initComponents();
         equipmentControl = new EquipmentControl();
+        loanControl = new LoanControl();
+        this.sessionUser=sessionUser;
         loadInventory();
     }
     
@@ -64,6 +70,8 @@ public class ListEquipment extends javax.swing.JPanel {
         registerLabel = new javax.swing.JLabel();
         backButtom = new javax.swing.JButton();
         showInfo = new javax.swing.JButton();
+        takeOutButtom = new javax.swing.JButton();
+        reserveButtom = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -97,6 +105,7 @@ public class ListEquipment extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        equipmentTable.setSelectionBackground(new java.awt.Color(255, 0, 0));
         equipmentTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(equipmentTable);
         if (equipmentTable.getColumnModel().getColumnCount() > 0) {
@@ -148,6 +157,26 @@ public class ListEquipment extends javax.swing.JPanel {
             }
         });
 
+        takeOutButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SolicitarText.png"))); // NOI18N
+        takeOutButtom.setBorderPainted(false);
+        takeOutButtom.setContentAreaFilled(false);
+        takeOutButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        takeOutButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                takeOutButtomActionPerformed(evt);
+            }
+        });
+
+        reserveButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ReservarText.png"))); // NOI18N
+        reserveButtom.setBorderPainted(false);
+        reserveButtom.setContentAreaFilled(false);
+        reserveButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reserveButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reserveButtomActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,20 +184,23 @@ public class ListEquipment extends javax.swing.JPanel {
             .addComponent(registerLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(200, 200, 200)
-                        .addComponent(showInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addGap(76, 76, 76)
+                .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
+                .addComponent(reserveButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
+                .addComponent(showInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addComponent(takeOutButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,13 +219,15 @@ public class ListEquipment extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(showInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(39, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(reserveButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(takeOutButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(showInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 46, Short.MAX_VALUE)))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -230,7 +264,7 @@ public class ListEquipment extends javax.swing.JPanel {
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
         
-        MenuEquipment menuEquipment = new MenuEquipment();
+        MenuEquipment menuEquipment = new MenuEquipment(sessionUser);
         menuEquipment.setSize(639,483);
         menuEquipment.setLocation(0,0);
 
@@ -246,7 +280,7 @@ public class ListEquipment extends javax.swing.JPanel {
 
         int row = equipmentTable.getSelectedRow();
         if(row!=-1){
-            ShowInfoEquipment showInfoEquipment = new ShowInfoEquipment();
+            ShowInfoEquipment showInfoEquipment = new ShowInfoEquipment(sessionUser);
             showInfoEquipment.setSize(639,494);
             showInfoEquipment.setLocation(0,0);
 
@@ -267,6 +301,43 @@ public class ListEquipment extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_showInfoActionPerformed
+
+    private void takeOutButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takeOutButtomActionPerformed
+        // TODO add your handling code here:
+        int row = equipmentTable.getSelectedRow();
+        if(row!=-1){
+            if(loanControl.verifyEquipment(equipmentTable.getValueAt(row, 2).toString())){
+                loanControl.takeOutEquipment(sessionUser.getIdentification(), equipmentTable.getValueAt(row, 2).toString());
+                JOptionPane.showMessageDialog(null, "Prestamo realizado con exito");
+                loadInventory();
+            } else{
+                JOptionPane.showMessageDialog(null, "Este equipo ya esta en prestamo.");
+            }
+                       
+        }
+        else{ JOptionPane.showMessageDialog(null, "Por favor Seleccione una Fila");
+        }
+    }//GEN-LAST:event_takeOutButtomActionPerformed
+
+    private void reserveButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveButtomActionPerformed
+        // TODO add your handling code here:
+        int row = equipmentTable.getSelectedRow();
+        if(row!=-1){
+            if(loanControl.verifyReserve(equipmentTable.getValueAt(row, 2).toString())){
+                if(loanControl.reserveEquipment(sessionUser.getIdentification(), loanControl.getLoanReserve(equipmentTable.getValueAt(row, 2).toString()))){
+                    JOptionPane.showMessageDialog(null, "Reserva realizada con exito, gonorrea.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Solo se pueden realizar reservas 3 dias antes de que se acabe el prestamo. Fecha final del prestamo seleccionado : "+loanControl.getLoanFinalDate(loanControl.getLoanReserve(equipmentTable.getValueAt(row, 2).toString())));
+                }
+                
+            } else{
+                JOptionPane.showMessageDialog(null, "Este equipo esta "+equipmentTable.getValueAt(row, 4).toString()+", no se puede reservar.");
+            }
+                       
+        }
+        else{ JOptionPane.showMessageDialog(null, "Por favor Seleccione una Fila");
+        }
+    }//GEN-LAST:event_reserveButtomActionPerformed
 
     public void listSearchEquipment(String inputValue, String typeSearch){
             
@@ -307,8 +378,10 @@ public class ListEquipment extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JLabel registerLabel;
+    private javax.swing.JButton reserveButtom;
     private javax.swing.JButton searchButtom;
     private javax.swing.JButton showInfo;
+    private javax.swing.JButton takeOutButtom;
     private javax.swing.JComboBox<String> typeSearchCombo;
     // End of variables declaration//GEN-END:variables
 }

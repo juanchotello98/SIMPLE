@@ -8,6 +8,7 @@ package GUI;
 import Controller.EquipmentControl;
 import static GUI.EditEquipmentForm.newStateComboBox;
 import Logic.Equipment;
+import Logic.User;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -18,13 +19,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EditEquipment extends javax.swing.JPanel {
     EquipmentControl equipmentControl;
+    User sessionUser;
 
     /**
      * Creates new form EditarEquipment
      */
-    public EditEquipment() {
+    public EditEquipment(User sessionUser) {
         initComponents();
         equipmentControl = new EquipmentControl();
+        this.sessionUser=sessionUser;
         loadInventory();
     }
 
@@ -107,7 +110,7 @@ public class EditEquipment extends javax.swing.JPanel {
         equipmentTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(equipmentTable);
 
-        typeSearchCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Serie"}));
+        typeSearchCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Serie","Estado"}));
         typeSearchCombo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         backButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/VolverButtom.png"))); // NOI18N
@@ -214,7 +217,14 @@ public class EditEquipment extends javax.swing.JPanel {
         
         int row = equipmentTable.getSelectedRow();
         if(row!=-1){
-        EditEquipmentForm editEquipmentForm = new EditEquipmentForm();
+            
+        String code=equipmentTable.getValueAt(row, 0).toString();
+        String name=equipmentTable.getValueAt(row, 1).toString();
+        String serial=equipmentTable.getValueAt(row, 2).toString();
+        String description=equipmentTable.getValueAt(row, 3).toString();
+        String state=equipmentTable.getValueAt(row, 4).toString();
+            if(!state.equals("Ocupado")){
+        EditEquipmentForm editEquipmentForm = new EditEquipmentForm(sessionUser);
         editEquipmentForm.setSize(639,483);
         editEquipmentForm.setLocation(0,0);
         
@@ -225,13 +235,11 @@ public class EditEquipment extends javax.swing.JPanel {
         this.revalidate();
         this.repaint();
         
-        String code=equipmentTable.getValueAt(row, 0).toString();
-        String name=equipmentTable.getValueAt(row, 1).toString();
-        String serial=equipmentTable.getValueAt(row, 2).toString();
-        String description=equipmentTable.getValueAt(row, 3).toString();
-        String state=equipmentTable.getValueAt(row, 4).toString();
-        
-        editEquipmentForm.setValues(code, name, serial, description, state);}
+        editEquipmentForm.setValues(code, name, serial, description, state);
+            }        
+            else{ JOptionPane.showMessageDialog(null, "No se puede editar un equipo con estado "+state);
+            }
+        }
         else{ JOptionPane.showMessageDialog(null, "Por favor Seleccione una Fila");
         }
  
@@ -239,7 +247,7 @@ public class EditEquipment extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        MenuEquipment menuEquipment = new MenuEquipment();
+        MenuEquipment menuEquipment = new MenuEquipment(sessionUser);
         menuEquipment.setSize(639,483);
         menuEquipment.setLocation(0,0);
 
@@ -255,12 +263,21 @@ public class EditEquipment extends javax.swing.JPanel {
         
     public String traduction(String word){
             
-            if(word.equals("Nombre")){
-                word = "name";
-            }
-            else { word = "serialNumber";}
-            
-            return  word;
+            switch (word) {
+             case "Nombre":
+             word = "name";
+             break;
+             case "Serie":
+             word = "serialNumber";
+             break;
+             case "Estado":
+             word = "state";
+             break;
+             default:
+             System.out.println("error");
+             break;} 
+             
+             return  word;
         }
         
     public void listSearchEquipment(String inputValue, String typeSearch){

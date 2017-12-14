@@ -5,20 +5,73 @@
  */
 package GUI;
 
+import Logic.User;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Diego
  */
 public class MainMenuAdministrador extends javax.swing.JFrame {
+    User sessionUser;
 
     /**
      * Creates new form MainMenu
      */
-    public MainMenuAdministrador() {
+    public MainMenuAdministrador(User sessionUser) {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("SIMPLE");
+        this.sessionUser = sessionUser;
+        displayMenuUser(sessionUser.getCharge());
+        
+    }
+    
+    private void displayMenuUser(String userCharge){
+        switch (userCharge) {
+        case "Administrador":
+        myProfileButtom.setVisible(true);
+        userButtom.setVisible(true);
+        EquipmentButtom.setVisible(true);
+        projectButtom.setVisible(true);
+        loanButtom.setVisible(true);
+        break;
+        case "Miembro":
+        myProfileButtom.setVisible(true);
+        userButtom.setVisible(true);
+        EquipmentButtom.setVisible(true);
+        projectButtom.setVisible(true);
+        loanButtom.setVisible(true);
+        break;
+        case "Coordinador de Equipos":
+        myProfileButtom.setVisible(true);
+        userButtom.setVisible(true);
+        EquipmentButtom.setVisible(true);
+        projectButtom.setVisible(true);
+        loanButtom.setVisible(true);
+        break;
+        case "Lider de Proyecto":
+        myProfileButtom.setVisible(true);
+        userButtom.setVisible(true);
+        EquipmentButtom.setVisible(true);
+        projectButtom.setVisible(true);
+        loanButtom.setVisible(true);
+        break;
+        case "Director de Laboratorio":
+        myProfileButtom.setVisible(true);
+        userButtom.setVisible(true);
+        EquipmentButtom.setVisible(true);
+        projectButtom.setVisible(true);
+        loanButtom.setVisible(true);
+        break;
+        default:
+        System.out.println("error" );
+        break;}       
+    }
+
+    private MainMenuAdministrador() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,12 +86,16 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
         panelImage1 = new org.edisoncor.gui.panel.PanelImage();
         panelImage5 = new org.edisoncor.gui.panel.PanelImage();
         panelImage6 = new org.edisoncor.gui.panel.PanelImage();
+        logOutButtom = new javax.swing.JButton();
         panelImage3 = new org.edisoncor.gui.panel.PanelImage();
         buttonIcon1 = new org.edisoncor.gui.button.ButtonIcon();
-        userButtom = new javax.swing.JButton();
         EquipmentButtom = new javax.swing.JButton();
         projectButtom = new javax.swing.JButton();
+        loanButtom = new javax.swing.JButton();
+        myProfileButtom = new javax.swing.JButton();
+        userButtom = new javax.swing.JButton();
         PanelDerecha = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +131,16 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
             .addGap(0, 57, Short.MAX_VALUE)
         );
 
+        logOutButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Cerrarsesion.png"))); // NOI18N
+        logOutButtom.setBorderPainted(false);
+        logOutButtom.setContentAreaFilled(false);
+        logOutButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logOutButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutButtomActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
         panelImage1.setLayout(panelImage1Layout);
         panelImage1Layout.setHorizontalGroup(
@@ -81,9 +148,10 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
             .addGroup(panelImage1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelImage5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
                 .addComponent(panelImage6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(logOutButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelImage1Layout.setVerticalGroup(
             panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,6 +160,9 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(panelImage6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(panelImage1Layout.createSequentialGroup()
+                .addComponent(logOutButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         panelImage3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/panel izquierdo.png"))); // NOI18N
@@ -100,16 +171,6 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
         buttonIcon1.setBorder(null);
         buttonIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/botonusarios.png"))); // NOI18N
         buttonIcon1.setText("buttonIcon1");
-
-        userButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/UserMainMenu.png"))); // NOI18N
-        userButtom.setBorderPainted(false);
-        userButtom.setContentAreaFilled(false);
-        userButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        userButtom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userButtomActionPerformed(evt);
-            }
-        });
 
         EquipmentButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/EquiposMainMenu.png"))); // NOI18N
         EquipmentButtom.setBorderPainted(false);
@@ -131,6 +192,36 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
             }
         });
 
+        loanButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PrestamosMainMenu.png"))); // NOI18N
+        loanButtom.setBorderPainted(false);
+        loanButtom.setContentAreaFilled(false);
+        loanButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        loanButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loanButtomActionPerformed(evt);
+            }
+        });
+
+        myProfileButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PerfilMainMenu.png"))); // NOI18N
+        myProfileButtom.setBorderPainted(false);
+        myProfileButtom.setContentAreaFilled(false);
+        myProfileButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        myProfileButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                myProfileButtomActionPerformed(evt);
+            }
+        });
+
+        userButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/UsuarioMainMenu.png"))); // NOI18N
+        userButtom.setBorderPainted(false);
+        userButtom.setContentAreaFilled(false);
+        userButtom.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        userButtom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userButtomActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelImage3Layout = new javax.swing.GroupLayout(panelImage3);
         panelImage3.setLayout(panelImage3Layout);
         panelImage3Layout.setHorizontalGroup(
@@ -138,39 +229,56 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
             .addGroup(panelImage3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelImage3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelImage3Layout.createSequentialGroup()
-                        .addComponent(userButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1189, 1189, 1189)
-                        .addComponent(buttonIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(projectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(myProfileButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelImage3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(userButtom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(EquipmentButtom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelImage3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(projectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(loanButtom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(1213, 1213, 1213)
+                .addComponent(buttonIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelImage3Layout.setVerticalGroup(
             panelImage3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelImage3Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(panelImage3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(userButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(EquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(projectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addGroup(panelImage3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelImage3Layout.createSequentialGroup()
+                        .addGap(281, 281, 281)
+                        .addComponent(buttonIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelImage3Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(myProfileButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(userButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(EquipmentButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(projectButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(loanButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PanelDerecha.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/LogoTeam.png"))); // NOI18N
 
         javax.swing.GroupLayout PanelDerechaLayout = new javax.swing.GroupLayout(PanelDerecha);
         PanelDerecha.setLayout(PanelDerechaLayout);
         PanelDerechaLayout.setHorizontalGroup(
             PanelDerechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(PanelDerechaLayout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelDerechaLayout.setVerticalGroup(
             PanelDerechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelDerechaLayout.createSequentialGroup()
+                .addGap(0, 54, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout panelImage2Layout = new javax.swing.GroupLayout(panelImage2);
@@ -181,8 +289,7 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
             .addGroup(panelImage2Layout.createSequentialGroup()
                 .addComponent(panelImage3, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(PanelDerecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(PanelDerecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelImage2Layout.setVerticalGroup(
             panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,9 +318,9 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
     private void EquipmentButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EquipmentButtomActionPerformed
         // TODO add your handling code here:
 
-        MenuEquipment menuEquipment = new MenuEquipment();
+        MenuEquipment menuEquipment = new MenuEquipment(sessionUser);
         menuEquipment.setSize(639,483);
-        menuEquipment.setLocation(0,0);
+        menuEquipment.setLocation(0,50);
 
         PanelDerecha.removeAll();
         PanelDerecha.revalidate();
@@ -224,9 +331,9 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
     private void userButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userButtomActionPerformed
         // TODO add your handling code here:
 
-        MenuUser menuUser = new MenuUser();
+        MenuUser menuUser = new MenuUser(sessionUser);
         menuUser.setSize(639,483);
-        menuUser.setLocation(0,0);
+        menuUser.setLocation(0,50);
 
         PanelDerecha.removeAll();
         PanelDerecha.revalidate();
@@ -236,15 +343,49 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
 
     private void projectButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectButtomActionPerformed
         // TODO add your handling code here:
-        MenuProject menuProject = new MenuProject();
+        MenuProject menuProject = new MenuProject(sessionUser);
         menuProject.setSize(639,483);
-        menuProject.setLocation(0,0);
+        menuProject.setLocation(0,50);
 
         PanelDerecha.removeAll();
         PanelDerecha.revalidate();
         PanelDerecha.repaint();
         PanelDerecha.add(menuProject);
     }//GEN-LAST:event_projectButtomActionPerformed
+
+    private void loanButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loanButtomActionPerformed
+        // TODO add your handling code here:
+        MenuLoan menuLoan = new MenuLoan(sessionUser);
+        menuLoan.setSize(639,483);
+        menuLoan.setLocation(0,50);
+
+        PanelDerecha.removeAll();
+        PanelDerecha.revalidate();
+        PanelDerecha.repaint();
+        PanelDerecha.add(menuLoan);
+    }//GEN-LAST:event_loanButtomActionPerformed
+
+    private void myProfileButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myProfileButtomActionPerformed
+        // TODO add your handling code here:
+        MenuProfile menuProfile = new MenuProfile(sessionUser);
+        menuProfile.setSize(639,483);
+        menuProfile.setLocation(0,50);
+
+        PanelDerecha.removeAll();
+        PanelDerecha.revalidate();
+        PanelDerecha.repaint();
+        PanelDerecha.add(menuProfile);
+    }//GEN-LAST:event_myProfileButtomActionPerformed
+
+    private void logOutButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtomActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Adiós, que tengas un buen día"); 
+
+        Login login = new Login();
+        this.dispose();
+        login.setVisible(true);
+        
+    }//GEN-LAST:event_logOutButtomActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,6 +427,10 @@ public class MainMenuAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton EquipmentButtom;
     private javax.swing.JPanel PanelDerecha;
     private org.edisoncor.gui.button.ButtonIcon buttonIcon1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton loanButtom;
+    private javax.swing.JButton logOutButtom;
+    private javax.swing.JButton myProfileButtom;
     private org.edisoncor.gui.panel.PanelImage panelImage1;
     private org.edisoncor.gui.panel.PanelImage panelImage2;
     private org.edisoncor.gui.panel.PanelImage panelImage3;

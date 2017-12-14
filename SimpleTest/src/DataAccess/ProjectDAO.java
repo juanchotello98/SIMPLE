@@ -59,6 +59,43 @@ public class ProjectDAO {
         return projects;
    }
     
+    public ArrayList <Object[]> listProjectProfile(String userIdentification){
+            
+        ArrayList <Object[]> projects = new ArrayList <>();
+        String sql_search;
+        sql_search="select project.code, project_member.projectID, project.name, projectDescription, member.firstname||' '||member.lastName, project.state\n" +
+                   "from project,member,project_member\n" +
+                   "Where member.identification=project.projectManager and project_member.projectID=project.projectID and project_member.userIdentification='"+userIdentification+"';";
+
+
+        try{
+            Connection conn= conection.connect();
+            System.out.println("consultando en la bd");
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_search);
+
+            while(tabla.next()){
+
+               Object[] objectRow = new Object[6];
+               
+               for(int i=0; i<6; i++){
+                   
+                   objectRow[i]=tabla.getObject(i+1);  
+               }
+               
+               projects.add(objectRow);
+            }
+
+         }
+         catch(SQLException e){ 
+                         System.out.println(e); 
+                         }
+         catch(Exception e){
+                          System.out.println(e); 
+                          }
+        return projects;
+   }
+    
     public Project searchProject(String inputValue, String typeSearch){
         Project project = new Project();
         String sql_search;
@@ -220,6 +257,29 @@ public class ProjectDAO {
             Statement sentencia = conn.createStatement();
 
             numFilas = sentencia.executeUpdate(sql_update);            
+            System.out.println("up " + numFilas);
+            return numFilas;
+            
+        }
+        catch(SQLException e){
+            System.out.println(e); 
+            }
+        catch(Exception e){ 
+            System.out.println(e);
+        }
+        return -1;
+    }//fin guardar
+    
+    public int linkUser(String codeProject, String identificationProject, String code, String identification){
+        String sql_save;
+        int numFilas=0;
+
+        sql_save="INSERT INTO project_member VALUES ('"+identificationProject+"', '"+identification+"')";
+        try{
+            Connection conn = conection.connect();
+            Statement sentencia = conn.createStatement();
+
+            numFilas = sentencia.executeUpdate(sql_save);            
             System.out.println("up " + numFilas);
             return numFilas;
             

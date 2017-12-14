@@ -5,17 +5,20 @@
  */
 package GUI;
 
+import Logic.User;
+
 /**
  *
  * @author Diego
  */
 public class ShowInfoProject extends javax.swing.JPanel {
-
+    User sessionUser;
     /**
      * Creates new form ShowInfoProject
      */
-    public ShowInfoProject() {
+    public ShowInfoProject(User sessionUser) {
         initComponents();
+        this.sessionUser=sessionUser;
     }
 
     /**
@@ -170,7 +173,7 @@ public class ShowInfoProject extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        ListProject listProject = new ListProject();
+        ListProject listProject = new ListProject(sessionUser);
         listProject.setSize(639,483);
         listProject.setLocation(0,0);
 

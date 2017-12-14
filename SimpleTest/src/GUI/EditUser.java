@@ -17,14 +17,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EditUser extends javax.swing.JPanel {
     UserControl userControl;
+    User sessionUser;
     
     /**
      * Creates new form EditUser
      */
-    public EditUser() {
+    public EditUser(User sessionUser) {
         initComponents();
         userControl = new UserControl();
         loadUsers();
+        this.sessionUser=sessionUser;
     }
 
     /**
@@ -227,7 +229,7 @@ public class EditUser extends javax.swing.JPanel {
         
         int row = userTable.getSelectedRow();
         if(row!=-1){
-        EditUserForm editUserForm = new EditUserForm();
+        EditUserForm editUserForm = new EditUserForm(sessionUser);
         editUserForm.setSize(639,483);
         editUserForm.setLocation(0,0);
         
@@ -255,7 +257,7 @@ public class EditUser extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        MenuUser menuUser = new MenuUser();
+        MenuUser menuUser = new MenuUser(sessionUser);
         menuUser.setSize(639,483);
         menuUser.setLocation(0,0);
 

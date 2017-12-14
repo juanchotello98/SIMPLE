@@ -84,7 +84,7 @@
               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="registerButtom" max="32767" attributes="0"/>
-                  <Component id="backButtom" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="backButtom" pref="41" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>

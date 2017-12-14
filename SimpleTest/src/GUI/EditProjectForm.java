@@ -6,6 +6,7 @@
 package GUI;
 
 import Controller.ProjectControl;
+import Logic.User;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -15,13 +16,15 @@ import javax.swing.JOptionPane;
  */
 public class EditProjectForm extends javax.swing.JPanel {
     ProjectControl projectControl;
+    User sessionUser;
 
     /**
      * Creates new form EditProjectForm
      */
-    public EditProjectForm() {
+    public EditProjectForm(User sessionUser) {
         initComponents();
         projectControl=new ProjectControl();
+        this.sessionUser=sessionUser;
         llenarCB();
     }
 
@@ -254,7 +257,7 @@ public class EditProjectForm extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        EditProject editProject = new EditProject();
+        EditProject editProject = new EditProject(sessionUser);
         editProject.setSize(639,483);
         editProject.setLocation(0,0);
 
@@ -296,7 +299,7 @@ public class EditProjectForm extends javax.swing.JPanel {
     
     public void loadEditProject(){
         
-        EditProject editProject = new EditProject();
+        EditProject editProject = new EditProject(sessionUser);
         editProject.setSize(639,483);
         editProject.setLocation(0,0);
 

@@ -125,4 +125,111 @@ public class UserControl {
         return result;
 
     }
+
+    public int updateProfile(String phone, String codeUser){
+
+        System.out.println("Se actualizarà un Perfil");
+        
+        int result = userDAO.updateProfile(phone, codeUser);
+
+        System.out.println("Se actualizò un Equipo");
+        
+        return result;
+
+    }
+    
+    public int updatePassword(String password, String codeUser){
+
+        System.out.println("Se actualizarà un Perfil");
+        
+        int result = userDAO.updatePassword(password, codeUser);
+
+        System.out.println("Se actualizò un Equipo");
+        
+        return result;
+
+    }
+    
+    public ArrayList<Object[]> listUserLinkProject(String projectID, String userID){
+    
+         ArrayList <Object[]> users = new ArrayList <>();
+         users = userDAO.listUserLinkProject(projectID,userID);
+         
+         return users;      
+    }
+    
+    public ArrayList<Object[]> listUserProject(String projectID){
+    
+         ArrayList <Object[]> users = new ArrayList <>();
+         users = userDAO.listUserProject(projectID);
+         
+         return users;      
+    }
+    
+    public User searchLinkUser(String inputValue,String typeSearch, String projectID){
+        //Vector v= new Vector();
+
+        User user = new User();
+        
+        System.out.println("Se va a Buscar un usuario");
+
+        user = userDAO.searchLinkUser(inputValue, typeSearch, projectID);
+      
+       return user;       
+    }
+    
+    public ArrayList<Object[]> listSearchLinkUser(String inputValue, String typeSearch, String projectID){
+    
+         ArrayList <Object[]> users = new ArrayList <>();
+         users = userDAO.listSearchLinkUser(inputValue, typeSearch, projectID);
+         
+         return users;      
+    }
+
+    public User searchProjecUser(String inputValue,String typeSearch, String projectID){
+        //Vector v= new Vector();
+
+        User user = new User();
+        
+        System.out.println("Se va a Buscar un usuario");
+
+        user = userDAO.searchProjectUser(inputValue, typeSearch, projectID);
+      
+       return user;       
+    }
+    
+    public ArrayList<Object[]> listSearchProjectUser(String inputValue, String typeSearch, String projectID){
+    
+         ArrayList <Object[]> users = new ArrayList <>();
+         users = userDAO.listSearchProjectUser(inputValue, typeSearch, projectID);
+         
+         return users;      
+    }
+
+    public User getUserInfo(String identification){
+        //Vector v= new Vector();
+
+        User user = new User();
+        
+        System.out.println("Se va a Buscar un Equipo");
+
+        user = userDAO.getUserInfo(identification);
+      
+       return user;       
+    }
+    
+    public int dropUserProject(String identification, String projectID ){
+            
+        //Se llama al dao para guardar
+        System.out.println("Se insertarà un Usuario");
+        
+        int result = userDAO.dropUserProject(identification,projectID);
+
+        System.out.println("Se insertò un Usuario");
+        
+        return result;
+
+    }
+
 }
+

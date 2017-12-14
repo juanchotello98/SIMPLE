@@ -54,14 +54,14 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="newIdentificationTextField" pref="215" max="32767" attributes="0"/>
-                                  <Component id="newFirstNameTextField" max="32767" attributes="0"/>
+                                  <Component id="newFirstNameTextField" pref="215" max="32767" attributes="0"/>
+                                  <Component id="newIdentificationTextField" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="newTypeIDComboBox" min="-2" pref="157" max="-2" attributes="0"/>
                                   <Component id="newCodeTextField" min="-2" pref="16" max="-2" attributes="0"/>
                                   <Component id="editButtom" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="newTypeIDComboBox" min="-2" pref="157" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                           </Group>
@@ -78,10 +78,8 @@
               <Component id="editEquipmentLabel" min="-2" pref="59" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="nameLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="newIdentificationTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="nameLabel15" min="-2" max="-2" attributes="0"/>
+                  <Component id="newIdentificationTextField" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="newTypeIDComboBox" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -117,7 +115,7 @@
                   <Component id="newStateComboBox" min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="nameLabel14" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="84" max="32767" attributes="0"/>
+              <EmptySpace pref="85" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="backButtom" max="32767" attributes="0"/>
                   <Component id="editButtom" pref="41" max="32767" attributes="0"/>

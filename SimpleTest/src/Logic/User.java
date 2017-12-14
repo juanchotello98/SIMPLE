@@ -21,39 +21,11 @@ public class User {
     private String typeID;
     private String phone;
     private String state;
-   // private ArrayList < Project > myProjects;
-    //private ArrayList < Equipment > my
 
-    // AGREGAR ATRIBUTOS PROYECTO ARRAYLIST
-
-
-    //Builder
+    
     public User(){
-        //this.userCode=userCode;
-        //myProjects = new ArrayList <>();
     }
 
-    //Methods
-    
-   /* public ArrayList getProject(){
-        return myProjects;
-    }
-    
-    public void deleteProjects(){
-        myProjects.removeAll(myProjects);
-    }
-    
-    public int projectSize(){
-        return myProjects.size();
-    }
-    
-    public void updateProjects(Project project){
-        myProjects.add(project);
-    }
-    
-    public Project viewProject(int posicion){
-        return myProjects.get(posicion);
-    }*/
     
     public String getCode(){
         return code;

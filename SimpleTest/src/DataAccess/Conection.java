@@ -13,7 +13,7 @@ import java.sql.Statement;
 public class Conection {
     public static Connection connection;
     public static Connection connect(){
-    String url = "jdbc:postgresql://localhost/simple";
+    String url = "jdbc:postgresql://localhost/simpleproyecto";
     String user = "diegoroot";
     String pass = "root";
     System.out.println("Conectando...");

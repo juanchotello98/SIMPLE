@@ -7,6 +7,7 @@ package GUI;
 
 import Controller.ProjectControl;
 import Logic.Project;
+import Logic.User;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -17,13 +18,14 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EditProject extends javax.swing.JPanel {
         ProjectControl projectControl;
-
+        User sessionUser;
     /**
      * Creates new form EditProject
      */
-    public EditProject() {
+    public EditProject(User sessionUser) {
         initComponents();
         projectControl = new ProjectControl();
+        this.sessionUser=sessionUser;
         loadProject();
     }
 
@@ -217,7 +219,7 @@ public class EditProject extends javax.swing.JPanel {
 
     private void editSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSelectActionPerformed
         // TODO add your handling code here:
-        EditProjectForm editProjectForm = new EditProjectForm();
+        EditProjectForm editProjectForm = new EditProjectForm(sessionUser);
         editProjectForm.setSize(639,483);
         editProjectForm.setLocation(0,0);
         
@@ -241,7 +243,7 @@ public class EditProject extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        MenuProject menuProject = new MenuProject();
+        MenuProject menuProject = new MenuProject(sessionUser);
         menuProject.setSize(639,483);
         menuProject.setLocation(0,0);
 

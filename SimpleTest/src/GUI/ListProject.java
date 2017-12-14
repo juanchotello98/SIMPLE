@@ -7,6 +7,7 @@ package GUI;
 
 import Controller.ProjectControl;
 import Logic.Project;
+import Logic.User;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -17,13 +18,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ListProject extends javax.swing.JPanel {
     ProjectControl projectControl;
+    User sessionUser;
     /**
      * Creates new form ListProject
      */
-    public ListProject() {
+    public ListProject(User sessionUser) {
         initComponents();
         projectControl = new ProjectControl();
+        this.sessionUser=sessionUser;
         loadProject();
+        
     }
 
     /**
@@ -43,6 +47,7 @@ public class ListProject extends javax.swing.JPanel {
         projectTable = new javax.swing.JTable();
         backButtom = new javax.swing.JButton();
         showInfo = new javax.swing.JButton();
+        showMemberProject = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -124,6 +129,16 @@ public class ListProject extends javax.swing.JPanel {
             }
         });
 
+        showMemberProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/verUserButtom.png"))); // NOI18N
+        showMemberProject.setBorderPainted(false);
+        showMemberProject.setContentAreaFilled(false);
+        showMemberProject.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        showMemberProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showMemberProjectActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,24 +147,25 @@ public class ListProject extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(76, 76, 76)
-                                .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(217, 217, 217)
-                                .addComponent(showInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 82, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1)))
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(typeSearchCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchButtom, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 82, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107)
+                .addComponent(showInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(showMemberProject, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,8 +188,10 @@ public class ListProject extends javax.swing.JPanel {
                         .addComponent(backButtom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(showInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(showInfo)
+                            .addComponent(showMemberProject, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(43, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -208,7 +226,7 @@ public class ListProject extends javax.swing.JPanel {
 
     private void backButtomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtomActionPerformed
         // TODO add your handling code here:
-        MenuProject menuProject = new MenuProject();
+        MenuProject menuProject = new MenuProject(sessionUser);
         menuProject.setSize(639,483);
         menuProject.setLocation(0,0);
 
@@ -224,7 +242,7 @@ public class ListProject extends javax.swing.JPanel {
 
         int row = projectTable.getSelectedRow();
         if(row!=-1){
-            ShowInfoProject showInfoProject = new ShowInfoProject();
+            ShowInfoProject showInfoProject = new ShowInfoProject(sessionUser);
             showInfoProject.setSize(639,494);
             showInfoProject.setLocation(0,0);
 
@@ -246,6 +264,29 @@ public class ListProject extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_showInfoActionPerformed
+
+    private void showMemberProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMemberProjectActionPerformed
+        // TODO add your handling code here:
+        int row = projectTable.getSelectedRow();
+        if(row!=-1){
+
+            String identification=projectTable.getValueAt(row, 1).toString();
+            
+            ListProjectMember listProjectMember = new ListProjectMember(sessionUser,identification);
+            listProjectMember.setSize(639,494);
+            listProjectMember.setLocation(0,0);
+
+            this.removeAll();
+            this.revalidate();
+            this.repaint();
+            this.add(listProjectMember);
+
+            listProjectMember.loadProjectUser(identification);
+        }
+        else{ JOptionPane.showMessageDialog(null, "Por favor Seleccione una Fila");
+        }
+        
+    }//GEN-LAST:event_showMemberProjectActionPerformed
 
     public void loadProject(){
         
@@ -305,6 +346,7 @@ public class ListProject extends javax.swing.JPanel {
     private javax.swing.JLabel registerLabel;
     private javax.swing.JButton searchButtom;
     private javax.swing.JButton showInfo;
+    private javax.swing.JButton showMemberProject;
     private javax.swing.JComboBox<String> typeSearchCombo;
     // End of variables declaration//GEN-END:variables
 }
